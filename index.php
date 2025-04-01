@@ -1,0 +1,133 @@
+<?php include_once "./fragments/navbar.php";?>
+
+<div class="Div mb-5">
+    <img src="./assets/images/heroImg.jpg" class="image" style="height:800px;width:100%" alt="Background Image">
+    <div class="text-overlay">
+        <h1>Welcome to My Website</h1>
+        <h3>Explore the Best Content Here</h3>
+        <div class="text-button-container">
+            <p class="para">DO YOU WANT TO JOIN THE SPORT CLUB?</p>
+            <a href="../student/regform.php" class="btn btn-danger">Register</a>
+            <!-- <button class="btn btn-danger">Register</button> -->
+        </div>
+    </div>
+</div>
+<div class="event">
+    <div class="container mb-5">
+    <h4 class="text-dark text-center">UpComing Events</h4>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="./assets/images/heroImg.jpg" class="img-fluid rounded" alt="Slide 1">
+                </div>
+                <div class="col-md-6">
+                    <h1 class="mt-2">Game Name</h1>
+                    <p class="mt-2">Location</p>
+                    <p class="mt-2">Time</p>
+                    <p class="mt-2">closing-Time</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quibusdam ullam rerum nihil dolores odit vero, distinctio aut. Non libero minima, quas quo est modi repellat cupiditate ad dignissimos necessitatibus quis! Maiores voluptas dolore explicabo vitae sunt quae similique, rerum ipsum et aliquam. Impedit eum labore quos optio amet nostrum consequuntur totam molestias consectetur minus, fugiat eligendi, commodi dolore asperiores!
+                    </p>
+                    <a class="btn btn-primary mt-3">Register</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="./assets/images/heroImg.jpg" class="img-fluid rounded" alt="Slide 1">
+                </div>
+                <div class="col-md-6">
+                    <h1 class="mt-2">Game Name</h1>
+                    <p class="mt-2">Location</p>
+                    <p class="mt-2">Time</p>
+                    <p class="mt-2">closing-Time</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quas vel molestiae sint quae fugit, odio neque deserunt maxime minus nesciunt nulla illo quis. Veritatis, quidem tempora? Suscipit, possimus. Tenetur explicabo quia consequatur suscipit ratione beatae culpa error possimus amet facere quaerat at asperiores impedit fugit harum vel provident iste aspernatur, distinctio sit! Harum, iste dolores quasi esse sequi possimus!
+                    </p>
+                    <a class="btn btn-primary mt-3">Register</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="./assets/images/heroImg.jpg" class="img-fluid rounded" alt="Slide 1">
+                </div>
+                <div class="col-md-6">
+                    <h1 class="mt-2">Game Name</h1>
+                    <p class="mt-2">Location</p>
+                    <p class="mt-2">Time</p>
+                    <p class="mt-2">closing-Time</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, inventore quos incidunt veniam numquam aperiam architecto cum voluptatem quaerat excepturi eligendi voluptatibus omnis hic libero, culpa, tenetur vel asperiores ab perspiciatis odio rerum necessitatibus! Sit explicabo, quidem consectetur totam animi esse quo tempore laudantium eos veritatis, rerum dolorem debitis iste cumque minima iure deleniti? Laboriosam dignissimos nemo ipsa tenetur obcaecati.
+                    </p>
+                    <a class="btn btn-primary mt-3">Register</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="blog" style="background:rgba(193, 197, 200, 0.05);">
+    <div class="container mb-5">
+        <h3 class="text-dark text-center mt-5">Blogs</h3>
+        <div class="row mt-4">
+            <div class="col-sm-6 mt-5">
+                <div class="custom-media d-flex">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="img mr-4">
+                                <img src="./assets/images/heroImg.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-dark">
+                                <span class="meta">may 20,2025</span>
+                                <h3 class="mb-4">
+                                    <h5>Alisa hkjhdkjfhskjje</h5>
+                                </h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente perspiciatis mollitia voluptatibus deleniti quaerat et voluptatem iste autem exercitationem similique!</p>
+                                <p>
+                                    <a href="#"class="btn btn-primary">Read more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-6 mt-5">
+                <div class="custom-media d-flex">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="img mr-4">
+                                <img src="./assets/images/heroImg.jpg" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-dark">
+                                <span class="meta">may 20,2025</span>
+                                <h3 class="mb-4">
+                                    <h5>Alisa hkjhdkjfhskjje</h5>
+                                </h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente perspiciatis mollitia voluptatibus deleniti quaerat et voluptatem iste autem exercitationem similique!</p>
+                                <p>
+                                    <a href="#"class="btn btn-primary">Read more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>    
+</div>
+
+<?php include_once "./fragments/footer.php";?>

@@ -1,0 +1,34 @@
+body {
+    background-color: #bcd9e7;
+}
+.nav-item .nav-link {
+    color:white;
+    font-weight: bold;
+    padding: 10px 0.8rem;
+    text-align: center;
+}
+.nav-link:hover {
+    background-color: white !important;  /* Changes background on hover */
+    color: #05427e !important;           
+    border-radius: 5px;                  
+    padding-left: 1rem;                   
+}
+.navbar{
+    background-color: #05427e;
+   
+}
+
+.card-widget {
+    /* background: linear-gradient(45deg,#05427e,#073146); */
+    text-align: center;
+    padding: 3.2rem;
+}
+.card{
+    border-radius: 0.8rem;
+}
+a{
+  text-decoration: none;
+}
+main{
+    margin-top: 8rem;
+}
