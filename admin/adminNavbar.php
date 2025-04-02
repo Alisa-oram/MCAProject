@@ -15,7 +15,7 @@
             <img src="../assets/images/image.png" class="rounded-pill" style="width: 40px;">
         </div>
         <div class="icon fs-3 text-white">
-            <i class="bi bi-bell bell-icon "></i>
+        <a href="manageStudent.php"><i class="bi bi-bell bell-icon "></i></a>
             <i class="bi bi-person-circle "></i>
         </div>
     </div>
@@ -26,7 +26,7 @@
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link active" href="./index.php">Dashboard</a></li>
                 <hr> <!-- Line after Dashboard -->
-                <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="AllCoach.php">Coach</a></li>
                 <hr> <!-- Line after Blog -->
                 <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
                 <hr> <!-- Line after Event -->

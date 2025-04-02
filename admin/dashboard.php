@@ -9,7 +9,7 @@
             <div class="card card-widget bg-danger">
                 <div class="card-body text-center">
                     <a href="add_Student.php" class="text-decoration-none">
-                        <h2 class="text-white">Add Student
+                        <h2 class="text-white">Club Member
                         <i class="bi bi-people-fill mt-4"></i></h2>
                     </a>
                 </div>
@@ -19,7 +19,7 @@
             <div class="card card-widget bg-warning">
                 <div class="card-body text-center">
                     <a href="add_user.html" class="text-decoration-none">
-                        <h2 class="text-white">Add User</h2>
+                        <h2 class="text-white">Coach</h2>
                     </a>   
                 </div>
             </div>
@@ -29,6 +29,15 @@
                 <div class="card-body text-center">
                     <a href="add_event.html" class="text-decoration-none">
                         <h2 class="text-white">Events</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-widget bg-info">
+                <div class="card-body text-center">
+                    <a href="blog.php" class="text-decoration-none">
+                        <h2 class="text-white">Blogs</h2>
                     </a>
                 </div>
             </div>

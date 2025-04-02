@@ -19,12 +19,53 @@ function regStudent($name,$sic,$sport,$dob,$email,$department,$year){
         $conn->close();
     }
 }
-function studentClub($sportsclub) {
+function studentClub() {
     $conn = dbConnection();
 
     try {
         // Prepare the query with a placeholder
-        $qry = "SELECT * FROM registered_student WHERE club = ?";
+        // $qry = "SELECT * FROM registered_student WHERE club = ?";
+        $qry = "SELECT * FROM registered_student ";
+        $stmt = $conn->prepare($qry);
+
+        // Check if statement preparation was successful
+        if (!$stmt) {
+            throw new Exception("Error preparing statement: " . $conn->error);
+        }
+
+        // Bind the parameter safely
+        // $stmt->bind_param('s', $sportsclub);
+
+        // Execute the query
+        if (!$stmt->execute()) {
+            throw new Exception("Query execution failed: " . $stmt->error);
+        }
+
+        // Fetch result
+        $res = $stmt->get_result();
+
+        // Check if any data exists
+        if ($res->num_rows > 0) {
+            $result = [];
+            while ($row = $res->fetch_assoc()) {
+                $result[] = $row;
+            }
+            return $result; // Return fetched data
+        } else {
+            return false; // No data found
+        }
+    } catch (Exception $e) {
+        die("Error: " . $e->getMessage());
+    }
+}
+
+function ClubMember($sportsclub){
+    $conn = dbConnection(); // Ensure $conn is a valid database connection
+
+    try {
+        // Prepare the query with a placeholder
+        $qry = "SELECT * FROM club_member WHERE club_name = ?";
+       
         $stmt = $conn->prepare($qry);
 
         // Check if statement preparation was successful
@@ -68,9 +109,9 @@ if(isset($_POST['submit'])) {
     $year = $_POST["year"];
 
     if (regStudent($name, $sic, $sport, $dob, $email, $department, $year)) {
-        echo "<script>alert('Successfully Registered!'); window.location.href='regform.php';</script>";
+        echo "<script>alert('Successfully Registered!'); window.location.href='../student/regform.php';</script>";
     } else {
-        echo "<script>alert('Error Registering!'); window.location.href='regform.php';</script>";
+        echo "<script>alert('Error Registering!'); window.location.href='../student/regform.php';</script>";
     }
 }
 ?>

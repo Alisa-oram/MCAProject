@@ -4,10 +4,10 @@
     require_once "studentdb.php";
     // if(isset($_GET['club'])){
     //     $_SESSION['club_name'] = $_GET['club']; // Store club name in session
-        
-    //     $sportsclub = $_GET['club'];
-    // }
-    $result = StudentClub();
+    if(isset($_GET['club_name'])){
+        $sportsclub = $_GET['club_name'];
+        // $sportsclub = $_GET['club'];
+    $result = ClubMember($sportsclub);
     if($result){
 ?>
 <main class="col-md-10 ms-sm-auto px-md-4 mt-5" style="min-height: 100vh; padding-top: 70px;">
@@ -17,7 +17,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Sic</th><th>Name</th><th>Club</th><th>Dept</th><th>Actions</th>
+                        <th>Sic</th><th>Name</th><th>Club</th><th>Dept</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,12 +29,12 @@
                             <tr>
                                 <td><?php echo $std['sic'] ?></td>
                                 <td><?php echo $std['name'] ?></td>
-                                <td><?php echo $std['club'] ?></td>
+                                <td><?php echo $std['club_name'] ?></td>
                                 <td><?php echo $std['dept'] ?></td>
-                                <td>
+                                <!-- <td>
                                     <a href="update.php?sic=<?php echo $std['sic'] ?>"  class="btn btn-sm btn-warning">Approve</a>
                                     <a href="delete.php?sic=<?php echo $std['sic'] ?>"  class="btn btn-sm btn-danger">Delete</a>
-                                </td>
+                                </td> -->
                             </tr>
                         <?php
                     }
@@ -49,7 +49,7 @@
 } else {
     echo "<h1>No Data Found</h1>";
 }
-// }
+}
 ?>
 </main>
 

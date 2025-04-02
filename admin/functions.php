@@ -1,14 +1,14 @@
 <?php
 session_start();
-require_once "../databaseconn/dbconnection.php";
+require_once "../dbFunctions/dbconnection.php";
 
 function approveStudent($sic) {
     $conn = dbConnection();
-    if (!isset($_SESSION['club_name'])) {
-        die("Club name not set in session.");
-    }
+    // if (!isset($_SESSION['club_name'])) {
+    //     die("Club name not set in session.");
+    // }
 
-    $club_name = $_SESSION['club_name'];
+    // $club_name = $_SESSION['club_name'];
 
     // Fetch student data from registered_student
     $qry = "SELECT * FROM registered_student WHERE sic = ?";

@@ -19,12 +19,12 @@ function addEvent($title,$date,$image,$content){
         $conn->close();
     }
 }
-function addCoach($name,$role,$club,$userid,$password,$email){
+function addCoach($name,$role,$club,$password,$email){
     $conn = dbConnection();
     try{
-        $qry = "INSERT INTO coach (name,role,club,userid,password,email) VALUES(?,?,?,?,?,?)";
+        $qry = "INSERT INTO coach (name,role,club,password,email) VALUES(?,?,?,?,?)";
         $stmt = $conn->prepare($qry);
-        $stmt->bind_param("ssssss",$name,$role,$club,$userid,$password,$email);
+        $stmt->bind_param("sssss",$name,$role,$club,$password,$email);
         $res = $stmt->execute();
         if(!$res){
             echo $conn->error;
@@ -41,6 +41,24 @@ function showClubs(){
     $conn = dbConnection();
     try{
         $qry = "SELECT clubName FROM sports_club";
+        $stmt = $conn->prepare($qry);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        if(!$res){
+            echo $conn->error;
+            return false;
+        } 
+        return $res;
+    }catch(Exception $e){
+        die($e->getMessage());
+    }finally{
+        $conn->close();
+    }
+}
+function ShowCoach(){
+    $conn = dbConnection();
+    try{
+        $qry = "SELECT * FROM coach";
         $stmt = $conn->prepare($qry);
         $stmt->execute();
         $res = $stmt->get_result();
