@@ -31,10 +31,6 @@
                                 <td><?php echo $std['name'] ?></td>
                                 <td><?php echo $std['club_name'] ?></td>
                                 <td><?php echo $std['dept'] ?></td>
-                                <!-- <td>
-                                    <a href="update.php?sic=<?php echo $std['sic'] ?>"  class="btn btn-sm btn-warning">Approve</a>
-                                    <a href="delete.php?sic=<?php echo $std['sic'] ?>"  class="btn btn-sm btn-danger">Delete</a>
-                                </td> -->
                             </tr>
                         <?php
                     }

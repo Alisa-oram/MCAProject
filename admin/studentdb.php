@@ -12,6 +12,13 @@ function regStudent($name,$sic,$sport,$dob,$email,$department,$year){
             echo $conn->error;
             return false;
         }
+        // Insert a notification for the admin
+        $notificationMsg = "New student registered in " . $sport;
+        $notifQry = "INSERT INTO notifications (message, is_read) VALUES (?, FALSE)";
+        $notifStmt = $conn->prepare($notifQry);
+        $notifStmt->bind_param("s", $notificationMsg);
+        $notifStmt->execute();
+        
         return $res;
     }catch(Exception $e){
         die($e->getMessage());

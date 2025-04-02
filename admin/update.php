@@ -1,5 +1,5 @@
 <?php
-require_once "functions.php";
+require_once "ApproveStudent.php";
 
 if (isset($_GET['sic'])) {
     $sic = $_GET['sic'];

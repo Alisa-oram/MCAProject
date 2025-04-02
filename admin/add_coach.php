@@ -9,7 +9,7 @@ if(isset($_POST['upload'])){
    require_once "admin_functions.php";
    $res = addCoach($name,$role,$club,$password,$email);
    if($res){
-      echo "<script>alert('Coach Added!'); window.location.href='add_user.html';</script>";
+      echo "<script>alert('Coach Added!'); window.location.href='add_coach.html';</script>";
    } else {
        echo " Error While Adding.";
    }

@@ -8,7 +8,7 @@
         <div class="col-md-4">
             <div class="card card-widget bg-danger">
                 <div class="card-body text-center">
-                    <a href="add_Student.php" class="text-decoration-none">
+                    <a href="Member.php" class="text-decoration-none">
                         <h2 class="text-white">Club Member
                         <i class="bi bi-people-fill mt-4"></i></h2>
                     </a>
@@ -18,7 +18,7 @@
         <div class="col-md-4">
             <div class="card card-widget bg-warning">
                 <div class="card-body text-center">
-                    <a href="add_user.html" class="text-decoration-none">
+                    <a href="add_coach.html" class="text-decoration-none">
                         <h2 class="text-white">Coach</h2>
                     </a>   
                 </div>

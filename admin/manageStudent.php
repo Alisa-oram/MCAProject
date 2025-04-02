@@ -1,4 +1,12 @@
 <?php
+require_once "../dbFunctions/dbconnection.php";
+$conn = dbConnection();
+
+// Mark all notifications as read when admin visits this page
+$conn->query("UPDATE notifications SET is_read = TRUE WHERE is_read = FALSE");
+?>
+
+<?php
     include_once "adminNavbar.php";
     session_start();
     require_once "studentdb.php";

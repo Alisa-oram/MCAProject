@@ -33,7 +33,7 @@
                                 <td><?php echo $coach['email'] ?></td>    
                             
                                 <td>
-                                    <a href="delete.php?sic=<?php echo $coach['id'] ?>"  class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="deleteCoach.php?id=<?php echo $coach['id'] ?>"  class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <?php
