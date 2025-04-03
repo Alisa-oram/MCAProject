@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
-    <link rel="stylesheet" href="../style/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
     <style>
     body{
       margin:0;
@@ -67,6 +67,6 @@
         </form>
     </card>
     <script src="form_validation.js"></script>
-    <script src="../style/bootstrap.bundle.min.js"></script>
+    <script src="../assets/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
