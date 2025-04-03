@@ -1,96 +1,55 @@
-  <footer class="text-center text-lg-start" style="background:rgba(31, 86, 123, 0.05)">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Admin</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-body">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 4</a>
-            </li>
-          </ul>
-        </div>
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-0">Instagram</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!" class="text-body">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Facebook</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-body">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-0">Coach</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!" class="text-body">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-body">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
+<footer class="text-center text-lg-start text-white" style="background-color: #05427e;">
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mt-4">
+        <h5>Silicon University,</h5>
+        <h5>Silicon Hills, Patia,</h5>
+        <h5>Bhubaneswar- 751024</h5>
+        <h5>Odisha, India.</h5>
       </div>
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-      © <span id="currentYear"></span> Copyright:
-    </div>
-  </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- Contact Info -->
+      <div class="col-lg-3 col-md-6 mt-4">
+        <h5 class="text-uppercase">Silicon SportClub</h5>
+        <ul class="list-unstyled">
+          <li><a href="mailto:silicon@gmail.com" class="text-white">Email: silicon@gmail.com</a></li>
+          <li><a href="tel:7788996654" class="text-white">Phone: 7788996654</a></li>
+        </ul>
+      </div>
 
+      <!-- Social Media Links -->
+      <div class="col-lg-3 col-md-6 mt-4">
+        <h5 class="text-uppercase">Follow Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-white">Instagram</a></li>
+          <li><a href="#!" class="text-white">Facebook</a></li>
+          <li><a href="#!" class="text-white">Twitter</a></li>
+          <li><a href="#!" class="text-white">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal & Event Links -->
+      <div class="col-lg-3 col-md-6 mt-4">
+        <h5 class="text-uppercase">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-white">Event Gallery</a></li>
+          <li><a href="#!" class="text-white">Privacy Policy</a></li>
+          <li><a href="#!" class="text-white">Terms of Use</a></li>
+          <li><a href="#!" class="text-white">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright Section -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © <span id="currentYear"></span> Silicon SportClub. All rights reserved.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    document.getElementById("currentYear").innerHTML = new Date().getFullYear();
-</script>  
+  document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+</script>
+
 </body>
 </html>

@@ -1,0 +1,29 @@
+.login-popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 180px;
+    z-index: 1000;
+}
+.login-hover:hover .login-popup {
+    display: block;
+}
+.login-hover {
+    position: relative;
+}
+.login-popup a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 5px;
+}
+
+.login-popup a:hover {
+    background-color: #05427e;
+    color:white;
+}
