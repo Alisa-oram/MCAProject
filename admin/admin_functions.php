@@ -73,4 +73,22 @@ function ShowCoach(){
         $conn->close();
     }
 }
+function addClub($name,$clubId){
+    $conn = dbConnection();
+    try{
+        $qry = "INSERT INTO sports_club (clubId,clubName) VALUES(?,?)";
+        $stmt = $conn->prepare($qry);
+        $stmt->bind_param("is",$clubId,$name);
+        $res = $stmt->execute();
+        if(!$res){
+            echo $conn->error;
+            return false;
+        }
+        return $res;
+    }catch(Exception $e){
+        die($e->getMessage());
+    }finally{
+        $conn->close();
+    }
+}
 ?>
