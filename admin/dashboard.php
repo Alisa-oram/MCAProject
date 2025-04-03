@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-4">
             <div class="card card-widget bg-info">
                 <div class="card-body text-center">
                     <a href="blog.php" class="text-decoration-none">

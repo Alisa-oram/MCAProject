@@ -76,30 +76,30 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="cards-wrapper">
-                    <div class="card">
-                        <img src="./assets/images/heroimg.jpg" class="card-img-top" alt="badminton">
+                <div class="cards-wrapper d-flex justify-content-center gap-4">
+                    <div class="card hover" style="width: 22rem; height: 28rem;transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
+                        <img src="./assets/images/heroimg.jpg" class="card-img-top" style="height: 60%;" alt="badminton">
                         <div class="card-body">
                             <h5 class="card-title">Badminton</h5>
                             <p class="card-text">Some quick example text.</p>
                             <a href="#" class="btn btn-primary">Visit</a>
                         </div>
                     </div>
-                    <div class="card d-none d-md-block">
-                        <img src="./assets/images/heroimg.jpg" class="card-img-top" alt="chess">
+                    <div class="card hover d-none d-md-block" style="width: 22rem; height: 28rem;transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
+                        <img src="./assets/images/heroimg.jpg" class="card-img-top" style="height: 60%;" alt="chess">
                         <div class="card-body">
                             <h5 class="card-title">Chess</h5>
                             <p class="card-text">Some quick example text.</p>
                             <a href="#" class="btn btn-primary">Visit</a>
                         </div>
                     </div>
-                    <div class="card d-none d-md-block">
-                        <img src="./assets/images/heroimg.jpg" class="card-img-top" alt="chess">
-                            <div class="card-body">
-                                <h5 class="card-title">Chess</h5>
-                                <p class="card-text">Some quick example text.</p>
-                                <a href="#" class="btn btn-primary">Visit</a>
-                            </div>
+                    <div class="card hover d-none d-md-block" style="width: 22rem; height: 28rem;transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
+                        <img src="./assets/images/heroimg.jpg" class="card-img-top" style="height: 60%;" alt="chess">
+                        <div class="card-body">
+                            <h5 class="card-title">Chess</h5>
+                            <p class="card-text">Some quick example text.</p>
+                            <a href="#" class="btn btn-primary">Visit</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,6 +129,7 @@
                         <a href="#" class="btn btn-primary">Visit</a>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -139,57 +140,45 @@
             <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
         </a>
 </div>
-<div class="blog" style="background:rgba(193, 197, 200, 0.05);">
+<div class="blog py-5" style="background:rgba(193, 197, 200, 0.05);">
     <div class="container mb-5">
-        <h3 class="text-dark text-center mt-5">Blogs</h3>
+        <h3 class="text-dark text-center fw-bold">Blogs</h3>
         <div class="row mt-4">
             <div class="col-sm-6 mt-5">
-                <div class="custom-media d-flex">
+                <div class="custom-media d-flex border rounded shadow-sm p-3">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="img mr-4">
-                                <img src="./assets/images/heroimg.jpg" class="img-fluid h-100">
-                            </div>
+                            <img src="./assets/images/heroimg.jpg" class="img-fluid h-100 rounded">
                         </div>
                         <div class="col-md-6">
                             <div class="text-dark">
-                                <span class="meta">may 20,2025</span>
-                                <h3 class="mb-4">
-                                    <h5>Alisa hkjhdkjfhskjje</h5>
-                                </h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente perspiciatis mollitia voluptatibus deleniti quaerat et voluptatem iste autem exercitationem similique!</p>
-                                <p>
-                                    <a href="#"class="btn btn-primary">Read more</a>
-                                </p>
+                                <span class="meta text-muted">May 20, 2025</span>
+                                <h5 class="fw-bold mt-2">Alisa's Insights</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                                <a href="#" class="btn btn-primary">Read more</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div> 
             <div class="col-sm-6 mt-5">
-                <div class="custom-media d-flex">
+                <div class="custom-media d-flex border rounded shadow-sm p-3">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="img mr-4">
-                                <img src="./assets/images/heroimg.jpg" class="img-fluid">
-                            </div>
+                            <img src="./assets/images/heroimg.jpg" class="img-fluid h-100 rounded">
                         </div>
                         <div class="col-md-6">
                             <div class="text-dark">
-                                <span class="meta">may 20,2025</span>
-                                <h3 class="mb-4">
-                                    <h5>Alisa hkjhdkjfhskjje</h5>
-                                </h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente perspiciatis mollitia voluptatibus deleniti quaerat et voluptatem iste autem exercitationem similique!</p>
-                                <p>
-                                    <a href="#"class="btn btn-primary">Read more</a>
-                                </p>
+                                <span class="meta text-muted">May 20, 2025</span>
+                                <h5 class="fw-bold mt-2">Alisa's Insights</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                                <a href="#" class="btn btn-primary">Read more</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div> 
         </div>
-    </div>    
+    </div>
 </div>
 <?php include_once "./fragments/footer.php";?>
