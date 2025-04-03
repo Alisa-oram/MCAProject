@@ -15,7 +15,7 @@
             $result = $stmt->get_result();
             if($result->num_rows > 0){
                 echo "Login Successfully";
-                header("location:../admin/dashboard.php");
+                header("location:../admin/index.php");
             }else{
                 echo "Invalid Credential!!";
             }
