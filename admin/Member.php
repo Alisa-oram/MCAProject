@@ -12,11 +12,13 @@ if($result){
          while($club = $result->fetch_assoc()){
             ?>
          <div class="col-md-4 ">
+         
                <div class="card card-widget">
                   <div class="card-body">
-                     <a href="./manageStudent.php?club=<?php echo $club['clubName'] ?>"><h2><?php echo $club['clubName'] ?></h2></a>
+                     <a href="./clubMember.php?club_name=<?php echo $club['clubName'] ?>"><h2><?php echo $club['clubName'] ?></h2></a>
                   </div>
                </div>
+        
          </div>
          <?php 
       }
@@ -26,6 +28,6 @@ if($result){
 </main>
 <?php
 }
-require_once "./admin/adminFooter.php";
+require_once "adminFooter.php";
 
 ?>

@@ -1,3 +1,12 @@
+<?php
+require_once "../dbFunctions/dbconnection.php"; // Include database connection
+
+$conn = dbConnection();
+$qry = "SELECT COUNT(*) AS unread_count FROM notifications WHERE is_read = FALSE";
+$result = $conn->query($qry);
+$unreadCount = ($result->num_rows > 0) ? $result->fetch_assoc()['unread_count'] : 0;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +24,16 @@
             <img src="../assets/images/image.png" class="rounded-pill" style="width: 40px;">
         </div>
         <div class="icon fs-3 text-white">
-            <i class="bi bi-bell bell-icon "></i>
+        <!-- <a href="manageStudent.php"><i class="bi bi-bell bell-icon "></i></a> -->
+        <!-- show the notification -->
+        <a href="manageStudent.php" class="position-relative">
+             <i class="bi bi-bell bell-icon"></i>
+            <?php if ($unreadCount > 0): ?>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <?php echo $unreadCount; ?>
+             </span>
+            <?php endif; ?>
+        </a>
             <i class="bi bi-person-circle "></i>
         </div>
     </div>
@@ -26,7 +44,7 @@
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link active" href="./index.php">Dashboard</a></li>
                 <hr> <!-- Line after Dashboard -->
-                <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="AllCoach.php">Coach</a></li>
                 <hr> <!-- Line after Blog -->
                 <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
                 <hr> <!-- Line after Event -->

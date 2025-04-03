@@ -24,7 +24,7 @@
 <body class="d-flex justify-content-center align-items-center min-vh-100">
     <card class="card  p-4 rounded shadow w-100 mt-2 mb-4" style="max-width: 500px;">
         <h2 class="text-center mb-4">Registration Form</h2>
-        <form action="studentdb.php"  method="POST" onsubmit="validate(event)">
+        <form action="../admin/studentdb.php"  method="POST" onsubmit="validate(event)">
                 <label class="form-label">Name</label>
                 <input type="text" name="name" required class="form-control"><br>
                 <label class="form-label">SIC</label>

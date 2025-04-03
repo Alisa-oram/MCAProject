@@ -1,21 +1,13 @@
 <?php
-require_once "../dbFunctions/dbconnection.php";
-$conn = dbConnection();
-
-// Mark all notifications as read when admin visits this page
-$conn->query("UPDATE notifications SET is_read = TRUE WHERE is_read = FALSE");
-?>
-
-<?php
     include_once "adminNavbar.php";
     session_start();
     require_once "studentdb.php";
     // if(isset($_GET['club'])){
     //     $_SESSION['club_name'] = $_GET['club']; // Store club name in session
-        
-    //     $sportsclub = $_GET['club'];
-    // }
-    $result = StudentClub();
+    if(isset($_GET['club_name'])){
+        $sportsclub = $_GET['club_name'];
+        // $sportsclub = $_GET['club'];
+    $result = ClubMember($sportsclub);
     if($result){
 ?>
 <main class="col-md-10 ms-sm-auto px-md-4 mt-5" style="min-height: 100vh; padding-top: 70px;">
@@ -25,7 +17,7 @@ $conn->query("UPDATE notifications SET is_read = TRUE WHERE is_read = FALSE");
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Sic</th><th>Name</th><th>Club</th><th>Dept</th><th>Actions</th>
+                        <th>Sic</th><th>Name</th><th>Club</th><th>Dept</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,12 +29,8 @@ $conn->query("UPDATE notifications SET is_read = TRUE WHERE is_read = FALSE");
                             <tr>
                                 <td><?php echo $std['sic'] ?></td>
                                 <td><?php echo $std['name'] ?></td>
-                                <td><?php echo $std['club'] ?></td>
+                                <td><?php echo $std['club_name'] ?></td>
                                 <td><?php echo $std['dept'] ?></td>
-                                <td>
-                                    <a href="update.php?sic=<?php echo $std['sic'] ?>"  class="btn btn-sm btn-warning">Approve</a>
-                                    <a href="delete.php?sic=<?php echo $std['sic'] ?>"  class="btn btn-sm btn-danger">Delete</a>
-                                </td>
                             </tr>
                         <?php
                     }
@@ -57,7 +45,7 @@ $conn->query("UPDATE notifications SET is_read = TRUE WHERE is_read = FALSE");
 } else {
     echo "<h1>No Data Found</h1>";
 }
-// }
+}
 ?>
 </main>
 
