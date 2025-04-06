@@ -1,4 +1,10 @@
-<?php include_once "./fragments/navbar.php";?>
+<?php 
+include_once "./fragments/navbar.php";
+// require_once "./dbFunctions/.php";
+// $data=display();
+// if($data){
+        
+?>
 <div class="Div mb-5">
     <img src="./assets/images/heroImg.jpg" class="image" style="height:800px;width:100%" alt="Background Image">
     <div class="text-overlay">
