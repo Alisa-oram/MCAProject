@@ -63,7 +63,7 @@ function approveStudent($sic) {
             $deleteStmt = $conn->prepare($deleteQry);
             $deleteStmt->bind_param("s", $sic);
             $deleteStmt->execute();
-
+            
             return true;
         } else {
             return false;
