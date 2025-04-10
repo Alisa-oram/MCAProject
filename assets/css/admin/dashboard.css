@@ -8,7 +8,7 @@ body {
     text-align: center;
 }
 .nav-link:hover {
-    background-color: white !important;  /* Changes background on hover */
+    background-color: white !important;
     color: #05427e !important;           
     border-radius: 5px;                  
     padding-left: 1rem;                   
@@ -19,16 +19,20 @@ body {
 }
 
 .card-widget {
-    /* background: linear-gradient(45deg,#05427e,#073146); */
     text-align: center;
     padding: 3.2rem;
+    
 }
 .card{
     border-radius: 0.8rem;
+    
 }
 a{
   text-decoration: none;
 }
 main{
     margin-top: 8rem;
+}
+.card-widget:hover .icon-effect {
+    transform: scale(1.5); /* Increase the size on hover */
 }

@@ -21,13 +21,16 @@ $unreadCount = ($result->num_rows > 0) ? $result->fetch_assoc()['unread_count'] 
 <div class="navbar w-100 z-1 position-fixed">
     <div class="nav w-100 d-flex justify-content-between px-3 py-2">
         <div class="logo ms-3">
-            <img src="../assets/images/image.png" class="rounded-pill" style="width: 40px;">
+            <a href="../index.php">
+                <img src="../assets/images/image.png" class="rounded-circle" style="width: 50px; height:50px;">
+                <span class="name me-2" style="font-family:'Georgia', Serif;font-size: 24px;color:white">SILICON SPORT</span>
+            </a>
         </div>
         <div class="icon fs-3 text-white">
         <!-- <a href="manageStudent.php"><i class="bi bi-bell bell-icon "></i></a> -->
         <!-- show the notification -->
         <a href="manageStudent.php" class="position-relative">
-             <i class="bi bi-bell bell-icon"></i>
+             <i class="bi bi-bell bell-icon text-white"></i>
             <?php if ($unreadCount > 0): ?>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   <?php echo $unreadCount; ?>

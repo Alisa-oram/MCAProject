@@ -59,3 +59,13 @@
         .btn:hover {
                 background-color: darkred;
             }
+            .card {
+              transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+          }
+          
+          .card:hover {
+              background-color: rgba(0, 0, 0, 0.1); /* Slightly black background */
+              transform: scale(1.03); /* Subtle zoom effect */
+          }
+          
+          
