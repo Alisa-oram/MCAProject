@@ -1,5 +1,5 @@
 <?php
-require_once "../dbFunctions/dbconnection.php";
+require_once "../dbFunctions/dbconnection.php"; 
 
 function regStudent($name,$sic,$sport,$dob,$email,$department,$year){
     $conn = dbConnection();

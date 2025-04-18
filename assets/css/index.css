@@ -40,7 +40,7 @@
             margin: 0;
             padding: 10px;
             white-space: nowrap; /* Prevents text from wrapping */
-            color:red;
+            color:blue;
             margin: top 10px; ;
         }
         .carousel-caption {
