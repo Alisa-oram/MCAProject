@@ -1,6 +1,6 @@
 <?php
 require_once "../dbFunctions/dbconnection.php";
-
+// require_once "../phpmailer/test.php";
 function addEvent($title,$date,$image,$content){
     $conn = dbConnection();
     try{
@@ -36,6 +36,7 @@ function addCoach($name,$role,$club,$password,$email){
     }finally{
         $conn->close();
     }
+    
 }
 function showClubs(){
     $conn = dbConnection();

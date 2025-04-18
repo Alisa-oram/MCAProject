@@ -67,7 +67,7 @@ function approveStudent($sic) {
             $deleteStmt->execute();
 
             //send mail to student
-             sendMail($student['email'], "Approved for club","You are selected for the club.Please login through userID:your sic number and password is your date of birth");
+             sendMail($student['email'], "Approved for club","You are selected for the club.Please login through userID:your email ID and password is your date of birth");
 
             
             return true;
