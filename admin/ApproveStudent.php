@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "../dbFunctions/dbconnection.php";
+require_once "../phpmailer/test.php";
 
 function approveStudent($sic) {
     $conn = dbConnection();
@@ -58,11 +59,16 @@ function approveStudent($sic) {
         );
 
         if ($insertStmt->execute()) {
+
             // Delete from registered_student after successful transfer
             $deleteQry = "DELETE FROM registered_student WHERE sic = ?";
             $deleteStmt = $conn->prepare($deleteQry);
             $deleteStmt->bind_param("s", $sic);
             $deleteStmt->execute();
+
+            //send mail to student
+             sendMail($student['email'], "Approved for club","You are selected for the club.Please login through userID:your email ID and password is your date of birth");
+
             
             return true;
         } else {

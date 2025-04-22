@@ -40,7 +40,7 @@
             margin: 0;
             padding: 10px;
             white-space: nowrap; /* Prevents text from wrapping */
-            color:red;
+            color:blue;
             margin: top 10px; ;
         }
         .carousel-caption {
@@ -67,5 +67,4 @@
               background-color: rgba(0, 0, 0, 0.1); /* Slightly black background */
               transform: scale(1.03); /* Subtle zoom effect */
           }
-          
           
