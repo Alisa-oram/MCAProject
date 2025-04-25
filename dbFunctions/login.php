@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once "dbconnection.php";
     if(isset($_POST['submit'])){
         if($_POST['role'] == 'admin'){
@@ -52,6 +53,10 @@
 
             $result = $stmt->get_result();
             if($result->num_rows > 0){
+                $user = $result->fetch_assoc();
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['name'] = $user['name'];
+                $_SESSION['club'] = $user['club'];
                 echo "Login Successfully";
                 header("location:../coach/index.php");
             }else{
@@ -59,4 +64,5 @@
             }
         }
     }
+    
 ?>

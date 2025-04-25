@@ -42,9 +42,9 @@
 </body>
 </html>
 
-<script src="./assets/bootstrap/bootstrap.bundle.min.js"></script>
+<!-- <script src="./assets/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> -->
 
 
 
