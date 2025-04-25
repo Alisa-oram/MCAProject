@@ -48,7 +48,7 @@
 
     /* Marquee Wrapper */
     .marquee-container {
-      height: 300px;
+     height: 300px;
       overflow: hidden;
       position: relative;
     }
@@ -56,21 +56,19 @@
     .marquee-content {
       display: flex;
       flex-direction: column;
-      animation: scroll-up 10s linear infinite;
+      animation: scroll-up 30s  infinite;
     }
 
     @keyframes scroll-up {
-      0% { transform: translateY(100%); }
-      100% { transform: translateY(-100%); }
-    }
-          
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+    
     </style>
 </head>
 <?php 
 include_once "./fragments/navbar.php";
-// require_once "./dbFunctions/.php";
-// $data=display();
-// if($data){
+require_once "./dbFunctions/student_function.php";
 ?>
 <div class="Div mb-5">
     <img src="./assets/images/land8.jpg" class="image" style="height:800px;width:100%" alt="Background Image">
@@ -91,16 +89,21 @@ include_once "./fragments/navbar.php";
                 <h4 class="mb-3">Student Events</h4>
                 <div class="marquee-container">
                     <div class="marquee-content">
-                        <div class="card event-card blue-bar mb-4 p-3">
-                            <div class="event-date">22 MAR 2025</div>
-                            <div class="event-title">Workshop on Elements of Writing</div>
+                <?php
+                $events = display();
+                foreach($events as $event){
+                    if($event['event_for'] == "student"){
+                ?>
+                        <div class="card event-card red-bar mb-4 p-3">
+                            <div class="event-date"><?php echo $event['date']?></div>
+                            <div class="event-title"> <?php echo $event['topic']?></div>
                             <a href="#" class="view-link">VIEW DETAILS &raquo;</a>
                         </div>
-                        <div class="card event-card blue-bar mb-4 p-3">
-                            <div class="event-date">25 MAR 2025</div>
-                            <div class="event-title">AI Hackathon</div>
-                            <a href="#" class="view-link">VIEW DETAILS &raquo;</a>
-                        </div>
+                <?php
+                    }
+
+                }
+                ?>
                     </div>
                 </div>
             </div>
@@ -108,21 +111,26 @@ include_once "./fragments/navbar.php";
                 <h4 class="mb-3">Faculty Events</h4>
                 <div class="marquee-container">
                     <div class="marquee-content">
-                        <div class="card event-card red-bar mb-4 p-3">
-                            <div class="event-date">21 – 22 MAR 2025</div>
-                            <div class="event-title">NWET 2025</div>
-                            <a href="#" class="view-link">VIEW DETAILS &raquo;</a>
-                        </div>
-                        <div class="card event-card red-bar mb-4 p-3">
-                            <div class="event-date">28 MAR 2025</div>
-                            <div class="event-title">Workshop on Pedagogy</div>
-                            <a href="#" class="view-link">VIEW DETAILS &raquo;</a>
-                        </div>
+                        <?php
+                        $events = display();
+                        foreach($events as $event){
+                            if($event['event_for'] == "faculty"){
+                        ?>
+                            <div class="card event-card blue-bar mb-4 p-3">
+                                <div class="event-date"><?php echo $event['date']?></div>
+                                <div class="event-title"> <?php echo $event['topic']?></div>
+                                <a href="#" class="view-link">VIEW DETAILS &raquo;</a>
+                            </div>
+                        <?php
+                            }
+                        }
+                        ?>
                    </div>
                 </div>
            </div>
         </div>
     </div>
+    
 </div>
 <div class="">
     <h4 class="text-dark text-center mt-4">Our Clubs</h4>
@@ -164,7 +172,7 @@ include_once "./fragments/navbar.php";
                         <div class="card-body">
                             <h5 class="card-title">Football</h5>
                             <p class="card-text">A globally popular game where teams score by getting a ball into the opponent’s goal.</p>
-                            <a href="#" class="btn btn-primary">Visit</a>
+                            <a href="football.php" class="btn btn-primary">Visit</a>
                         </div>
                     </div>
                     <div class="card hover d-none d-md-block" style="width: 22rem; height: 28rem; transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
@@ -197,9 +205,6 @@ include_once "./fragments/navbar.php";
         </button>
     </div>
 </div>
-
-
-
 <div class="blog py-5" style="background:rgba(193, 197, 200, 0.05);">
     <div class="container mb-5">
         <h3 class="text-dark text-center fw-bold">Blogs</h3>
@@ -207,6 +212,7 @@ include_once "./fragments/navbar.php";
             <div class="col-sm-6 mt-5">
                 <div class="custom-media d-flex border rounded shadow-sm p-3">
                     <div class="row">
+                        
                         <div class="col-md-6">
                             <img src="./assets/images/kabadi2.jpg" class="img-fluid h-100 rounded">
                         </div>

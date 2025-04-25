@@ -1,5 +1,5 @@
 <?php
-require_once "./dbconnection.php";
+require_once "dbconnection.php";
 function display(){
     $conn = dbConnection();
     try {
@@ -9,13 +9,14 @@ function display(){
         $result = $stmt->get_result();
         
         if($result->num_rows > 0){
-            return $result;
+            $data = $result->fetch_all(MYSQLI_ASSOC); // Convert to associative array
+            return $data;
         } else {
             return false;
         }
     } catch (Exception $e) {
-        die($e->getMessgae());
-    } finally{
+        die($e->getMessage()); // Corrected typo in getMessage()
+    } finally {
         $conn->close();
     }
 }
