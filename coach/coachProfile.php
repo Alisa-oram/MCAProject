@@ -11,7 +11,7 @@
         <p class="card-text fst-italic">Front-end developer and avid reader.</p>
         <a href="attendance.php" class="btn btn-dark button">Attendance</a>
         <a href="#" class="btn btn-dark button">Remarks</a>
-        <a href="#" class="btn btn-dark button">Teams</a>
+        <a href="matchTeam.php" class="btn btn-dark button">Teams</a>
       </div>
     </div>
   </main>

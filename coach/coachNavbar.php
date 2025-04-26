@@ -35,7 +35,7 @@
                 <li class="nav-item"><a class="nav-link" href="view_attendance.php">View Attendance</a></li>
                 <hr> <!-- Line after Event -->
                 <li class="nav-item"><a class="nav-link" href="./sports.php">Sports</a></li><hr>
-                <li class="nav-item"><a class="nav-link" href="#">Match</a></li><hr>
+                <li class="nav-item"><a class="nav-link" href="matchTeam.php">Match</a></li><hr>
             </ul>
         </div>
     </nav>

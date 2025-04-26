@@ -16,18 +16,14 @@ $result = ClubMember($sportsclub); // Function that fetches students in the give
 <main class="col-md-10 ms-sm-auto px-md-4 mt-5" style="min-height: 100vh; padding-top: 70px;">
 <div class="row">
     <div class="col-md-10 mt-5 mx-auto">
-        <form id="attendanceForm">
+        <form id="MatchTeamForm">
             <input type="hidden" name="club_name" value="<?php echo $sportsclub; ?>">
             <input type="hidden" name="coach_email" value="<?php echo $email; ?>">
-                <div class="mb-3">
-            <label for="attendance_date" class="form-label">Select Date:</label>
-            <input type="date" name="attendance_date" id="attendance_date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required>
-              </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Sic</th><th>Name</th><th>Club</th><th>Dept</th><th>Present</th>
+                            <th>Sic</th><th>Name</th><th>Club</th><th>Dept</th><th>Select</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,18 +36,16 @@ $result = ClubMember($sportsclub); // Function that fetches students in the give
                                 <td>
                                     <input type="hidden" name="student_ids[]" value="<?php echo $std['sic']; ?>">
                                     <input type="hidden" name="student_names[]" value="<?php echo $std['name']; ?>">
-                                    <input type="checkbox" name="attendance[<?php echo $std['sic']; ?>]" value="Present" checked>
+                                    <input type="checkbox" name="teams[<?php echo $std['sic']; ?>]" value="Select" checked>
                                 </td>
                             </tr>
-                        <?php }?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
-            <!-- <button type="submit" class="btn btn-success">Submit Attendance</button> -->
             <div class="mb-3 text-end">
-            <button type="submit" class="btn btn-success">Submit Attendance</button>
-           <!-- <button type="button" class="btn  btn-primary me-2" onclick="markAll('Present')">Mark All Present</button>
-           <button type="button" class="btn  btn-danger" onclick="markAll('Absent')">Mark All Absent</button> -->
+            <input type="submit" class="btn btn-success" value="Submit Team" name="submit">
+           
            </div>     
         </form>
         <div id="responseMsg" class="mt-3"></div>
@@ -67,11 +61,11 @@ $result = ClubMember($sportsclub); // Function that fetches students in the give
 
 <script src="../assets/jquery/jquery-3.7.1.min.js"></script>
 <script>
-$('#attendanceForm').submit(function(e){
+$('#MatchTeamForm').submit(function(e){
     e.preventDefault();
 
     $.ajax({
-        url: 'submit_attendance.php',
+        url: 'submit_team.php',
         type: 'POST',
         data: $(this).serialize(),
         success: function(response){
@@ -79,14 +73,7 @@ $('#attendanceForm').submit(function(e){
         }
     });
 });
-//for marking all student present or absent
-// function markAll(status){
-//     const checkboxes = document.querySelectorAll("input[type = 'checkbox'][name^ = 'attendance']");
-//     checkboxes.forEach(cb =>
-//     {cb.checked =(status === 'Present');
 
-//     });
-// }
 </script>
 
 <?php include_once "../coach/coachFooter.php"; ?>
