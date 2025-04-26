@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/admin/navbar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .navbar{
+            z-index: 999 !important;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg position-absolute w-100" style="background-color: #05427e;">
+    <nav class="navbar navbar-expand-lg position-fixed top-0 start-0 w-100" style="background-color: #05427e;">
         <div class="container-fluid">
             <a class="navbar-brand text-white d-flex align-items-center" href="./index.php">
                 <img src="./assets/images/image.png" alt="Logo" width="50" height="50" class="me-2 rounded-circle">

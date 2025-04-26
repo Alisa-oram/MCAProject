@@ -1,0 +1,93 @@
+<head>
+    <style>
+        .Div1{
+            position: relative;
+             width: 100%;
+              height: 750px;
+            }
+        .foot{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 60px;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+         }
+         .card-row {
+           display: flex;
+           flex-wrap: wrap;
+           gap: 0; /* no gap between cards */
+          }
+          .card-col {
+            flex: 0 0 20%; /* 100% / 5 cards = 20% */
+            padding: 0;
+            }
+</style>
+</head>
+<?php
+include_once "./fragments/navbar.php";
+?>
+<div class="Div1">
+  <img src="./assets/images/foot.jpg" alt="Football Club" style="width: 100%; height: 100%; object-fit: cover;">
+  <div class="foot">Football Club</div>
+</div>
+<div class="container my-4 mt-5">
+  <div class="row justify-content-center g-3">
+    
+    <!-- Coach Column -->
+    <div class="col-md-6">
+      <h5 class="mb-2 text-center text-black fw-bold fs-3">Coach</h5>
+      <div class="card shadow-sm border-0 h-100" style="min-height: 200px;">
+        <div class="row g-0 h-100">
+          <!-- Image -->
+          <div class="col-md-5 h-100">
+            <img src="./assets/images/coach.jpg" class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Coach Image">
+          </div>
+          <div class="col-md-7 bg-primary text-light px-3 py-2 rounded-end d-flex flex-column justify-content-center h-100">
+            <small style="font-size: 1rem;">Coach Profile</small>
+            <h6 class="mt-1 mb-1">Coach John Doe</h6>
+            <p class="mb-1" style="font-size: 1rem;"><strong>Phone:</strong> +1 (234) 567-890</p>
+            <p style="font-size: 1rem;">15+ years in coaching, focused on growth and leadership.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secretary Column -->
+    <div class="col-md-6">
+      <h5 class="mb-2 text-center text-black fw-bold fs-3">Secretary</h5>
+      <div class="card shadow-sm border-0 h-100" style="min-height: 200px;">
+        <div class="row g-0 h-100">
+          <!-- Image -->
+          <div class="col-md-5 h-100">
+            <img src="./assets/images/secretary.jpg" class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Secretary Image">
+          </div>
+          <div class="col-md-7 bg-success text-light px-3 py-2 rounded-end d-flex flex-column justify-content-center h-100">
+            <small style="font-size: 1rem;">Secretary Profile</small>
+            <h6 class="mt-1 mb-1">Secretary Jane Smith</h6>
+            <p class="mb-1" style="font-size: 1rem;"><strong>Email:</strong> jane@example.com</p>
+            <p style="font-size: 1rem;">Manages communication and team coordination.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="text-center py-10">
+    <h2 class="text-3xl font-bold text-indigo-700 mt-5">Our Club Members</h2>
+</div>
+
+
+
+<?php
+include_once "./fragments/footer.php";
+?>
+
+ 
+
+
+
