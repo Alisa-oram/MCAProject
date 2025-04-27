@@ -46,7 +46,7 @@ $dates_result = $date_query->get_result();
             $stmt->bind_param("ss", $club, $selected_date);
             $stmt->execute();
             $attendance_result = $stmt->get_result();
-        }
+        
         if ($attendance_result->num_rows > 0)
         {
     ?>
@@ -83,15 +83,13 @@ $dates_result = $date_query->get_result();
      </form>
         <?php }else{ ?>
             <p>No attendance records found for <?php echo $selected_date; ?>.</p>
-        <?php 
-        }
-         ?>
+        <?php }
+        } else{
+        ?><h3 class="text-center mt-4">Please select a date to view attendance.</h3>
+<?php
+    }
+?>
     </div>
-     <?php
-// if (isset($_GET['updated'])) {
-//     echo '<div class="alert alert-success">Successfully updated ' . $_GET['updated'] . ' record(s).</div>';
-// }
-?> 
 <?php if (isset($_GET['updated'])) { ?>
             <div class="alert alert-success alert-dismissible fade show mt-4 text-center" role="alert">
                 Successfully updated <?php echo htmlspecialchars($_GET['updated']); ?> record(s).
