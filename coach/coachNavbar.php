@@ -30,11 +30,11 @@
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link active" href="./index.php">Dashboard</a></li>
                 <hr> <!-- Line after Dashboard -->
-                <li class="nav-item"><a class="nav-link" href="AllCoach.php">Coach</a></li>
+                <li class="nav-item"><a class="nav-link" href="viewTeam.php">View Team</a></li>
                 <hr> <!-- Line after Blog -->
                 <li class="nav-item"><a class="nav-link" href="view_attendance.php">View Attendance</a></li>
                 <hr> <!-- Line after Event -->
-                <li class="nav-item"><a class="nav-link" href="./sports.php">Sports</a></li><hr>
+                <li class="nav-item"><a class="nav-link" href="viewRemark.php">View Remarks</a></li><hr>
                 <li class="nav-item"><a class="nav-link" href="matchTeam.php">Match</a></li><hr>
             </ul>
         </div>
