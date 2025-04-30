@@ -56,7 +56,7 @@
     .marquee-content {
       display: flex;
       flex-direction: column;
-      animation: scroll-up 30s  infinite;
+      animation: scroll-up 40s  infinite;
     }
 
     @keyframes scroll-up {
@@ -133,116 +133,79 @@ require_once "./dbFunctions/student_function.php";
     
 </div>
 <div class="">
-    <h4 class="text-dark text-center mt-4">Our Clubs</h4>
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
+<?php
+require_once "./dbFunctions/student_function.php";
+$clubs = getAllClubs();
+
+$chunks = array_chunk($clubs, 3); // each carousel item will contain 3 cards
+?>
+
+<h4 class="text-dark text-center mt-4">Our Clubs</h4>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <?php foreach ($chunks as $index => $clubSet): ?>
+            <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
                 <div class="cards-wrapper d-flex justify-content-center gap-4">
-                    <div class="card hover" style="width: 22rem; height: 28rem; transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
-                        <img src="./assets/images/badminton.jpg" class="card-img-top" style="height: 60%;" alt="badminton">
-                        <div class="card-body">
-                            <h5 class="card-title">Badminton</h5>
-                            <p class="card-text">A fast-paced racket sport played with a shuttlecock over a net.</p>
-                            <a href="#" class="btn btn-primary">Visit</a>
+                    <?php foreach ($clubSet as $club): ?>
+                        <div class="card hover" style="width: 22rem; height: 28rem; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
+                            <img src="uploads/<?php echo htmlspecialchars($club['image']); ?>" class="card-img-top" style="height: 60%;" alt="<?php echo $club['clubName']; ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo htmlspecialchars($club['clubName']); ?></h5>
+                                <p class="card-text"><?php echo htmlspecialchars($club['detail']); ?></p>
+                                <a href="<?php echo strtolower($club['clubName']) . '.php'; ?>" class="btn btn-primary">Visit</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card hover d-none d-md-block" style="width: 22rem; height: 28rem; transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
-                        <img src="./assets/images/aaaa.jpg" class="card-img-top" style="height: 60%;" alt="Basketball">
-                        <div class="card-body">
-                            <h5 class="card-title">Basket Ball</h5>
-                            <p class="card-text">A team sport where players aim to score by shooting a ball through a hoop.</p>
-                            <a href="#" class="btn btn-primary">Visit</a>
-                        </div>
-                    </div>
-                    <div class="card hover d-none d-md-block" style="width: 22rem; height: 28rem; transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
-                        <img src="./assets/images/volleybal.webp" class="card-img-top" style="height: 60%;" alt="Volleyball">
-                        <div class="card-body">
-                            <h5 class="card-title">Volley Ball</h5>
-                            <p class="card-text">A sport where two teams hit a ball over a net aiming to land it on the opponent's court.</p>
-                            <a href="#" class="btn btn-primary">Visit</a>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
-
-            <div class="carousel-item">
-                <div class="cards-wrapper d-flex justify-content-center gap-4">
-                    <div class="card hover" style="width: 22rem; height: 28rem; transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
-                        <img src="./assets/images/footbal.jpg" class="card-img-top" style="height: 60%;" alt="Football">
-                        <div class="card-body">
-                            <h5 class="card-title">Football</h5>
-                            <p class="card-text">A globally popular game where teams score by getting a ball into the opponent’s goal.</p>
-                            <a href="football.php" class="btn btn-primary">Visit</a>
-                        </div>
-                    </div>
-                    <div class="card hover d-none d-md-block" style="width: 22rem; height: 28rem; transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
-                        <img src="./assets/images/cricket.jpg" class="card-img-top" style="height: 60%;" alt="Tennis">
-                        <div class="card-body">
-                            <h5 class="card-title">Cricket</h5>
-                            <p class="card-text">A bat-and-ball game played between two teams aiming to score the most runs.</p>
-                            <a href="#" class="btn btn-primary">Visit</a>
-                        </div>
-                    </div>
-                    <div class="card hover d-none d-md-block" style="width: 22rem; height: 28rem; transition: all 0.3s; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);">
-                        <img src="./assets/images/kabadi.jpg" class="card-img-top" style="height: 60%;" alt="Chess">
-                        <div class="card-body">
-                            <h5 class="card-title">Kabadi</h5>
-                            <p class="card-text">A contact team sport where players tag opponents while holding their breath.</p>
-                            <a href="#" class="btn btn-primary">Visit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <?php endforeach; ?>
     </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
+
 <div class="blog py-5" style="background:rgba(193, 197, 200, 0.05);">
     <div class="container mb-5">
         <h3 class="text-dark text-center fw-bold">Blogs</h3>
         <div class="row mt-4">
+    <?php 
+    $blogs = showBlog();
+    if ($blogs): ?>
+        <?php foreach ($blogs as $blog): ?>
             <div class="col-sm-6 mt-5">
                 <div class="custom-media d-flex border rounded shadow-sm p-3">
                     <div class="row">
-                        
                         <div class="col-md-6">
-                            <img src="./assets/images/kabadi2.jpg" class="img-fluid h-100 rounded">
+                            <img src="./uploads/<?php echo $blog['image']; ?>" class="img-fluid h-100 ">
                         </div>
                         <div class="col-md-6">
                             <div class="text-dark">
-                                <span class="meta text-muted">May 20, 2025</span>
-                                <h5 class="fw-bold mt-2"> The Rise of Kabaddi</h5>
-                                <p>Kabaddi, once a rural pastime, has evolved into a thrilling international sport. Its mix of agility, strength, and strategy captivates audiences worldwide. Discover its journey from</p>
-                                <a href="#" class="btn btn-primary">Read more</a>
+                                <span class="meta text-muted"><?php echo date('F d, Y', strtotime($blog['date'])); ?></span>
+                                <h5 class="fw-bold mt-2"><?php echo $blog['title']; ?></h5>
+                                <p>
+                                    <?php 
+                                        $desc = htmlspecialchars($blog['detail']);
+                                        echo strlen($desc) > 120 ? substr($desc, 0, 120) . '...' : $desc; 
+                                    ?>
+                                </p>
+                                <a href="blogpage.php?id=<?php echo $blog['id']; ?>" class="btn btn-primary">Read more</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div> 
-            <div class="col-sm-6 mt-5">
-                <div class="custom-media d-flex border rounded shadow-sm p-3">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="./assets/images/img3.jpg" class="img-fluid h-100 rounded">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-dark">
-                                <span class="meta text-muted">May 20, 2025</span>
-                                <h5 class="fw-bold mt-2">The Spirit of Sports</h5>
-                                <p> Sports go beyond competition—they instill discipline, teamwork, and perseverance. Whether on the field or in life, the lessons learned from sports shape character and drive success.</p>
-                                <a href="#" class="btn btn-primary">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No blogs found.</p>
+    <?php endif; ?>
+</div>
             </div> 
         </div>
     </div>

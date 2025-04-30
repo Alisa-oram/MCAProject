@@ -1,12 +1,30 @@
 <?php
 require_once "../dbFunctions/dbconnection.php";
 // require_once "../phpmailer/test.php";
-function addEvent($title,$date,$image,$content){
+function addEvent($title,$date,$image,$content,$event_for){
     $conn = dbConnection();
     try{
-        $qry = "INSERT INTO event (date,image,topic,detail) VALUES(?,?,?,?)";
+        $qry = "INSERT INTO event (date,image,topic,detail,event_for) VALUES(?,?,?,?,?)";
         $stmt = $conn->prepare($qry);
-        $stmt->bind_param("ssss",$date,$image,$title,$content);
+        $stmt->bind_param("sssss",$date,$image,$title,$content,$event_for);
+        $res = $stmt->execute();
+        if(!$res){
+            echo $conn->error;
+            return false;
+        }
+        return $res;
+    }catch(Exception $e){
+        die($e->getMessage());
+    }finally{
+        $conn->close();
+    }
+}
+function addBlog($title,$date,$image,$content){
+    $conn = dbConnection();
+    try{
+        $qry = "INSERT INTO blog (title,date,image,detail) VALUES(?,?,?,?)";
+        $stmt = $conn->prepare($qry);
+        $stmt->bind_param("ssss",$title,$date,$image,$content);
         $res = $stmt->execute();
         if(!$res){
             echo $conn->error;

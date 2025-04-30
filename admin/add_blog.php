@@ -26,18 +26,18 @@
 <body>
   <div class="container d-flex justify-content-center align-items-center vh-100">
       <div class="form-container">
-          <h2 class="text-center text-primary mb-4">Add Event</h2>
-          <form action="event.php" method="post" enctype="multipart/form-data">
+          <h2 class="text-center text-primary mb-4">Publish a Blog</h2>
+          <form action="" method="post" enctype="multipart/form-data">
               <div class="mb-3">
                   <label class="form-label">Title:</label>
                   <input type="text" name="title" placeholder="Enter your title" class="form-control" required>
               </div>
               <div class="mb-3">
-                  <label class="form-label">Event Date:</label>
+                  <label class="form-label">Date:</label>
                   <input type="date" name="date" class="form-control" required>
               </div>
               <div class="mb-3">
-                  <label class="form-label">Upload Banner:</label>
+                  <label class="form-label">Upload Image:</label>
                   <input type="file" name="image" class="form-control" required>
               </div>
               <div class="mb-3">
@@ -51,3 +51,26 @@
     <script src="../assets/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<?php
+if(isset($_POST['add'])){
+    $title = $_POST['title'];
+    $date = $_POST['date'];
+    $image = $_FILES['image'];
+    $content = $_POST['article'];
+    $new_name = time()."-".$image['name'];
+    $upload_path="../uploads/".$new_name;
+    if(move_uploaded_file($image['tmp_name'],$upload_path)){
+    require_once "admin_functions.php";
+    $res = addBlog($title,$date,$new_name,$content);
+    if($res){
+         header("location:add_blog.php");
+        
+    } else {
+        echo " Error While Adding.";
+    }
+} else {
+    echo "File Upload Error";
+}
+}
+
+?>

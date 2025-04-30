@@ -36,7 +36,7 @@
         <div class="col-md-4 mt-4">
             <div class="card card-widget position-relative" style="background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);">
                 <div class="card-body text-center">
-                    <a href="blog.php" class="text-decoration-none">
+                    <a href="add_blog.php" class="text-decoration-none">
                         <h2 class="text-white">Blogs  <i class="bi bi-substack fs-1 position-absolute" style="bottom: 10px; right: 10px;"></i></h2>
                     </a>
                 </div>
