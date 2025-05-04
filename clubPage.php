@@ -26,16 +26,40 @@
             }
 </style>
 </head>
+
+
 <?php
 include_once "./fragments/navbar.php";
+require_once "./dbFunctions/dbconnection.php";
+
+$conn = dbConnection();
+if (!$conn || $conn->connect_error) {
+  die("Database connection failed: " . $conn->connect_error);
+}
+
+$clubId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+if ($clubId <= 0) {
+    die("Invalid or missing club ID.");
+}
+
+$sql = "SELECT clubName, image FROM sports_club WHERE clubId = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $clubId);
+$stmt->execute();
+$result = $stmt->get_result();
+$club = $result->fetch_assoc();
+
+if (!$club) {
+    die("Club not found.");
+}
 ?>
+
 <div class="Div1">
-  <img src="./assets/images/foot.jpg" alt="Football Club" style="width: 100%; height: 100%; object-fit: cover;">
-  <div class="foot">Football Club</div>
+  <img src="./uploads/<?= htmlspecialchars($club['image']) ?>" alt="Club" style="width: 100%; height: 100%; object-fit: cover;">
+  <div class="foot"><?= htmlspecialchars($club['clubName']) ?> Club</div>
 </div>
-<div class="container my-4 mt-5">
-  <div class="row justify-content-center g-3">
-    
+<div class="container">
+    <div class="card-row">
     <!-- Coach Column -->
     <div class="col-md-6">
       <h5 class="mb-2 text-center text-black fw-bold fs-3">Coach</h5>

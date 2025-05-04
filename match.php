@@ -64,6 +64,26 @@
 
 <?php 
 include_once "./fragments/navbar.php";
+require_once "./admin/admin_functions.php"; // include DB connection helper
+
+$conn = dbConnection();
+
+$now = date("Y-m-d H:i:s");
+
+// Fetch the next upcoming match (earliest future match)
+$nextMatchSql = "SELECT * FROM matches WHERE match_datetime > ? ORDER BY match_datetime ASC LIMIT 1";
+$stmt = $conn->prepare($nextMatchSql);
+$stmt->bind_param("s", $now);
+$stmt->execute();
+$nextMatchResult = $stmt->get_result();
+$nextMatch = $nextMatchResult->fetch_assoc();
+
+// Fetch all other upcoming matches except the next one
+$upcomingSql = "SELECT * FROM matches WHERE match_datetime > ? ORDER BY match_datetime ASC LIMIT 100 OFFSET 1";
+$stmt2 = $conn->prepare($upcomingSql);
+$stmt2->bind_param("s", $now);
+$stmt2->execute();
+$upcomingMatches = $stmt2->get_result();
 ?>
 <div class="Division">
   <img src="./assets/images/match1.jpg" alt="Football Club" style="width: 100%; height: 100%; object-fit: cover;">
@@ -75,28 +95,30 @@ include_once "./fragments/navbar.php";
       <div class="match-box">
         <div class="highlight-bar fw-bold">Next Match</div>
 
-        <div class="p-5 text-center">
-          <div class="row align-items-center justify-content-center mb-4">
-            <div class="col-4">
-              <img src="./assets/images/logo2.png" class="team-logo mb-3" alt="APEX SMASHERS Logo">
-              <h4 class="fw-bold mb-0">APEX SMASHERS</h4>
-            </div>
-            <div class="col-4 d-flex flex-column align-items-center">
-              <span class="vs-badge">VS</span>
-              <div class="match-info mt-2">
-                <h6 class="text-danger fw-bold mb-1">Chakravyuh 2025</h6>
-                <p class="text-secondary mb-0">April 30th, 2025</p>
-                <p class="text-secondary mb-0">Time - 3:45 PM</p>
-                <p class="text-danger mb-0">Sundeck Sport Complex</p>
-                <p class="text-danger">Silicon Cricket Club</p>
-              </div>
-            </div>
-            <div class="col-4">
-              <img src="./assets/images/logo1.png" class="team-logo mb-3" alt="TURBO TITANS Logo">
-              <h4 class="fw-bold mb-0">TURBO TITANS</h4>
-            </div>
-          </div>
-        </div>
+        <?php if ($nextMatch): ?>
+<div class="p-5 text-center">
+  <div class="row align-items-center justify-content-center mb-4">
+    <div class="col-4">
+      <img src="./uploads/<?= $nextMatch['banner_a'] ?>" class="team-logo mb-3" alt="<?= $nextMatch['team_a'] ?> Logo">
+      <h4 class="fw-bold mb-0"><?= htmlspecialchars($nextMatch['team_a']) ?></h4>
+    </div>
+    <div class="col-4 d-flex flex-column align-items-center">
+      <span class="vs-badge">VS</span>
+      <div class="match-info mt-2">
+        <h6 class="text-danger fw-bold mb-1"><?= htmlspecialchars($nextMatch['event_name']) ?></h6>
+        <p class="text-secondary mb-0"><?= date("F jS, Y", strtotime($nextMatch['match_datetime'])) ?></p>
+        <p class="text-secondary mb-0">Time - <?= date("g:i A", strtotime($nextMatch['match_datetime'])) ?></p>
+        <p class="text-danger mb-0"><?= htmlspecialchars($nextMatch['venue']) ?></p>
+        <p class="text-danger"><?= htmlspecialchars($nextMatch['club']) ?></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <img src="./uploads/<?= $nextMatch['banner_b'] ?>" class="team-logo mb-3" alt="<?= $nextMatch['team_b'] ?> Logo">
+      <h4 class="fw-bold mb-0"><?= htmlspecialchars($nextMatch['team_b']) ?></h4>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
 
       </div>
     </div>
@@ -105,107 +127,34 @@ include_once "./fragments/navbar.php";
 <div class="container py-5">
   <div class="section-title mb-5 fs-1 fw-bold text-center">Upcoming Matches</div>
   <div class="row g-4">
-    <!-- Match 1 -->
+    <?php while ($row = $upcomingMatches->fetch_assoc()): ?>
     <div class="col-md-6">
       <div class="match-card bg-light p-4 border rounded-4 shadow-sm">
         <div class="d-flex align-items-center justify-content-center mb-4">
           <div class="text-center mx-4">
-            <img src="./assets/images/logo2.png" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
-            <div class="mt-2 fs-5 fw-bold">Football League</div>
+            <img src="./uploads/<?= $row['banner_a'] ?>" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
+            <div class="mt-2 fs-5 fw-bold"><?= htmlspecialchars($row['team_a']) ?></div>
           </div>
           <div class="mx-4 d-flex align-items-center">
             <span class="vs-badge text-uppercase fw-bold px-3 py-1 bg-dark text-white rounded">VS</span>
           </div>
           <div class="text-center mx-4">
-            <img src="./assets/images/logo2.png" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
-            <div class="mt-2 fs-5 fw-bold">Soccer</div>
+            <img src="./uploads/<?= $row['banner_b'] ?>" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
+            <div class="mt-2 fs-5 fw-bold"><?= htmlspecialchars($row['team_b']) ?></div>
           </div>
         </div>
         <div class="text-center">
-          <div class="text-danger mb-1 fw-bold">Silicon Cup League</div>
-          <p class="mb-0 fw-bold">December 20th, 2025</p>
-          <p class="mb-2 fw-bold">9:30 AM</p>
-          <div class="text-danger fw-bold">Sundeck Sport Complex</div>
+          <div class="text-danger mb-1 fw-bold"><?= htmlspecialchars($row['event_name']) ?></div>
+          <p class="mb-0 fw-bold"><?= date("F jS, Y", strtotime($row['match_datetime'])) ?></p>
+          <p class="mb-2 fw-bold"><?= date("g:i A", strtotime($row['match_datetime'])) ?></p>
+          <div class="text-danger fw-bold"><?= htmlspecialchars($row['venue']) ?></div>
         </div>
       </div>
     </div>
-
-    <!-- Match 2 -->
-    <div class="col-md-6">
-      <div class="match-card bg-light p-4 border rounded-4 shadow-sm">
-        <div class="d-flex align-items-center justify-content-center mb-4">
-          <div class="text-center mx-4">
-            <img src="./assets/images/logo2.png" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
-            <div class="mt-2 fs-5 fw-bold">Team Alpha</div>
-          </div>
-          <div class="mx-4 d-flex align-items-center">
-            <span class="vs-badge text-uppercase fw-bold px-3 py-1 bg-dark text-white rounded">VS</span>
-          </div>
-          <div class="text-center mx-4">
-            <img src="./assets/images/logo2.png" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
-            <div class="mt-2 fs-5 fw-bold">Team Beta</div>
-          </div>
-        </div>
-        <div class="text-center">
-          <div class="text-danger mb-1 fw-bold">Champions League</div>
-          <p class="mb-0 fw-bold">December 22nd, 2020</p>
-          <p class="mb-2 fw-bold">11:00 AM GMT+0</p>
-          <div class="text-danger fw-bold">Global Stadium</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Match 3 -->
-    <div class="col-md-6">
-      <div class="match-card bg-light p-4 border rounded-4 shadow-sm">
-        <div class="d-flex align-items-center justify-content-center mb-4">
-          <div class="text-center mx-4">
-            <img src="./assets/images/logo2.png" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
-            <div class="mt-2 fs-5 fw-bold">Legends United</div>
-          </div>
-          <div class="mx-4 d-flex align-items-center">
-            <span class="vs-badge text-uppercase fw-bold px-3 py-1 bg-dark text-white rounded">VS</span>
-          </div>
-          <div class="text-center mx-4">
-            <img src="./assets/images/logo2.png" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
-            <div class="mt-2 fs-5 fw-bold">Victory FC</div>
-          </div>
-        </div>
-        <div class="text-center">
-          <div class="text-danger mb-1 fw-bold">Legends Cup</div>
-          <p class="mb-0 fw-bold">December 25th, 2020</p>
-          <p class="mb-2 fw-bold">6:00 PM GMT+0</p>
-          <div class="text-danger fw-bold">Legacy Arena</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Match 4 -->
-    <div class="col-md-6">
-      <div class="match-card bg-light p-4 border rounded-4 shadow-sm">
-        <div class="d-flex align-items-center justify-content-center mb-4">
-          <div class="text-center mx-4">
-            <img src="./assets/images/logo2.png" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
-            <div class="mt-2 fs-5 fw-bold">Stormbreakers</div>
-          </div>
-          <div class="mx-4 d-flex align-items-center">
-            <span class="vs-badge text-uppercase fw-bold px-3 py-1 bg-dark text-white rounded">VS</span>
-          </div>
-          <div class="text-center mx-4">
-            <img src="./assets/images/logo2.png" alt="Team Logo" class="rounded-circle border border-3 border-dark" height="100">
-            <div class="mt-2 fs-5 fw-bold">Thundercats</div>
-          </div>
-        </div>
-        <div class="text-center">
-          <div class="text-danger mb-1 fw-bold">Elite Series</div>
-          <p class="mb-0 fw-bold">December 28th, 2020</p>
-          <p class="mb-2 fw-bold">3:00 PM GMT+0</p>
-          <div class="text-danger fw-bold">Stormfield</div>
-        </div>
-      </div>
-    </div>
+    <?php endwhile; ?>
   </div>
 </div>
+
 <!-- past matchs -->
 <div class="container py-4">
   <h4 class="mb-4 fw-bold text-dark text-center fs-1">Completed Matches</h4>

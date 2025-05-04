@@ -1,5 +1,5 @@
 <?php
-require_once "../dbFunctions/dbconnection.php";
+require_once __DIR__ . '/../dbFunctions/dbconnection.php';
 // require_once "../phpmailer/test.php";
 function addEvent($title,$date,$image,$content,$event_for){
     $conn = dbConnection();
@@ -110,4 +110,24 @@ function addClub($name,$clubId){
         $conn->close();
     }
 }
+function addMatch($teamA, $teamB, $event, $datetime, $venue, $club, $bannerA, $bannerB) {
+    $conn = dbConnection();
+    try {
+        $qry = "INSERT INTO matches (team_a, team_b, event_name, match_datetime, venue, club, banner_a, banner_b) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($qry);
+        $stmt->bind_param("ssssssss", $teamA, $teamB, $event, $datetime, $venue, $club, $bannerA, $bannerB);
+        $res = $stmt->execute();
+        if (!$res) {
+            echo $conn->error;
+            return false;
+        }
+        return $res;
+    } catch (Exception $e) {
+        die("Error: " . $e->getMessage());
+    } finally {
+        $conn->close();
+    }
+}
+
 ?>

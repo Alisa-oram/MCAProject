@@ -152,7 +152,7 @@ $chunks = array_chunk($clubs, 3); // each carousel item will contain 3 cards
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo htmlspecialchars($club['clubName']); ?></h5>
                                 <p class="card-text"><?php echo htmlspecialchars($club['detail']); ?></p>
-                                <a href="<?php echo strtolower($club['clubName']) . '.php'; ?>" class="btn btn-primary">Visit</a>
+                                <a href="clubPage.php?id=<?= $club['clubId'] ?>" class="btn btn-primary">Visit</a>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -195,7 +195,7 @@ $chunks = array_chunk($clubs, 3); // each carousel item will contain 3 cards
                                         echo strlen($desc) > 120 ? substr($desc, 0, 120) . '...' : $desc; 
                                     ?>
                                 </p>
-                                <a href="blogpage.php?id=<?php echo $blog['id']; ?>" class="btn btn-primary">Read more</a>
+                                <a href="./student/blogpage.php?id=<?php echo $blog['id']; ?>" class="btn btn-primary">Read more</a>
                             </div>
                         </div>
                     </div>
