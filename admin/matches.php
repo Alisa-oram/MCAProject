@@ -11,6 +11,7 @@ if ($result) {
 <div class="row">
     <div class="col-md-10 mt-5 mx-auto">
         <div class="table-responsive">
+        <h2 class="mb-4 text-primary">Manage Matches</h2>
             <table class="table table-striped text-white">
                 <thead>
                     <tr>
