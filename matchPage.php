@@ -158,97 +158,47 @@ $upcomingMatches = $stmt2->get_result();
 <!-- past matchs -->
 <div class="container py-4">
   <h4 class="mb-4 fw-bold text-dark text-center fs-1">Completed Matches</h4>
-
   <div class="row g-4">
-    <!-- Cricket Match Card -->
-    <div class="col-md-4">
-      <div class="card shadow-sm rounded-4 h-100">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted fst-italic">Chakravyuh Premier League - Cricket</h6>
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <small class="text-muted">
-              Silicon Sports Ground, Bhubaneswar, 22-Apr-25, 10 Over,<br> <strong>FINAL</strong>
-            </small>
-          </div>
-          <div class="border-top pt-3 pb-2">
+    <?php
+    $completedSql = "SELECT * FROM completedmatches ORDER BY match_datetime DESC";
+    $completedResult = $conn->query($completedSql);
+    
+    if (!$completedResult) {
+        die("Error fetching completed matches: " . $conn->error);
+    }    
+    while ($match = $completedResult->fetch_assoc()): ?>
+      <div class="col-md-4">
+        <div class="card shadow-sm rounded-4 h-100">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted fst-italic"><?= htmlspecialchars($match['event_name']) ?></h6>
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <div class="fw-bold text-success">Storm Breakers</div>
-              <div class="fw-bold text-success">139/3 <small class="text-muted">(10.0)</small></div>
+              <small class="text-muted">
+                <?= htmlspecialchars($match['venue']) ?>,
+                <?= date("d-M-y", strtotime($match['match_datetime'])) ?>
+              </small>
             </div>
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <div class="fw-semibold text-dark">Turbo Titans</div>
-              <div class="fw-semibold text-dark">122/4 <small class="text-muted">(10.0)</small></div>
+            <div class="border-top pt-3 pb-2">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="fw-bold text-success"><?= htmlspecialchars($match['team_a']) ?></div>
+                <div class="fw-bold text-success"><?= htmlspecialchars($match['score_a']) ?></div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="fw-bold text-success"><?= htmlspecialchars($match['team_b']) ?></div>
+                <div class="fw-bold text-success"><?= htmlspecialchars($match['score_b']) ?></div>
+              </div>
             </div>
-          </div>
-          <div class="border-top pt-3">
-            <p class="mb-0">
-              <strong class="text-dark">Storm Breakers</strong> won by <strong>17 runs</strong>
-            </p>
+            <div class="border-top pt-3">
+              <p class="mb-0">
+                <strong class="text-dark"><?= htmlspecialchars($match['msg']) ?></strong>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Football Match Card -->
-    <div class="col-md-4">
-      <div class="card shadow-sm rounded-4 h-100">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted fst-italic">Inter College Football Cup</h6>
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <small class="text-muted">
-              Silicon Turf, Bhubaneswar, 21-Apr-25, 90 min,<br> <strong>FINAL</strong>
-            </small>
-          </div>
-          <div class="border-top pt-3 pb-2">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <div class="fw-bold text-success">Blazing Boots</div>
-              <div class="fw-bold text-success">3</div>
-            </div>
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <div class="fw-semibold text-dark">Iron Kickers</div>
-              <div class="fw-semibold text-dark">1</div>
-            </div>
-          </div>
-          <div class="border-top pt-3">
-            <p class="mb-0">
-              <strong class="text-dark">Blazing Boots</strong> won by <strong>2 goals</strong>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Basketball Match Card -->
-    <div class="col-md-4">
-      <div class="card shadow-sm rounded-4 h-100">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted fst-italic">Campus Hoops Championship</h6>
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <small class="text-muted">
-              Silicon Indoor Arena, Bhubaneswar, 20-Apr-25,<br> <strong>SEMI FINAL</strong>
-            </small>
-          </div>
-          <div class="border-top pt-3 pb-2">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <div class="fw-bold text-success">Dunk Masters</div>
-              <div class="fw-bold text-success">78</div>
-            </div>
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <div class="fw-semibold text-dark">Net Warriors</div>
-              <div class="fw-semibold text-dark">65</div>
-            </div>
-          </div>
-          <div class="border-top pt-3">
-            <p class="mb-0">
-              <strong class="text-dark">Dunk Masters</strong> won by <strong>13 points</strong>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <?php endwhile; ?>
   </div>
 </div>
+
 
 <?php
 include_once "./fragments/footer.php";

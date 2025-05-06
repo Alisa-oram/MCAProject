@@ -71,8 +71,17 @@ if (!$club) {
           </div>
           <div class="col-md-7 bg-primary text-light px-3 py-2 rounded-end d-flex flex-column justify-content-center h-100">
             <small style="font-size: 1rem;">Coach Profile</small>
-            <h6 class="mt-1 mb-1">Coach John Doe</h6>
-            <p class="mb-1" style="font-size: 1rem;"><strong>Phone:</strong> +1 (234) 567-890</p>
+            <?php
+            // Fetch the coach details using the club name
+            $coachQry = "SELECT name, email FROM coach WHERE club = ?";
+            $coachStmt = $conn->prepare($coachQry);
+            $coachStmt->bind_param("s", $club['clubName']);
+            $coachStmt->execute();
+            $coachResult = $coachStmt->get_result();
+            $coach = $coachResult->fetch_assoc();
+            ?>
+            <h6 class="mt-1 mb-1"><?= htmlspecialchars($coach['name']) ?></h6>
+            <p class="mb-1" style="font-size: 1rem;"><strong>Email:</strong> <?= htmlspecialchars($coach['email']) ?></p>
             <p style="font-size: 1rem;">15+ years in coaching, focused on growth and leadership.</p>
           </div>
         </div>
