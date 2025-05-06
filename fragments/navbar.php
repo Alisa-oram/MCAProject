@@ -26,8 +26,12 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link text-white mx-3" style="font-family: 'Georgia', Serif; font-size: 18px;" href="./index.php">Home</a></li>
+
                     <li class="nav-item"><a class="nav-link text-white mx-3" style="font-family: 'Georgia', Serif; font-size: 18px;" href="./matchPage.php">Matches</a></li>
                     <li class="nav-item"><a class="nav-link text-white mx-3" style="font-family: 'Georgia', Serif; font-size: 18px;" href="#">Blogs</a></li>
+
+                    <li class="nav-item"><a class="nav-link text-white mx-3" style="font-family: 'Georgia', Serif; font-size: 18px;" href="./match.php">Matches</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-3" style="font-family: 'Georgia', Serif; font-size: 18px;" href="./blog.php">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link text-white mx-3" style="font-family: 'Georgia', Serif; font-size: 18px;" href="login.php">Login</a></li>
                 </ul>
             </div>
