@@ -23,7 +23,7 @@ function display(){
 function showBlog(){
     $conn = dbConnection();
     try {
-        $qry = "SELECT * FROM blog";
+        $qry = "SELECT * FROM blog ORDER BY date DESC";
         $stmt = $conn->prepare($qry);
         $stmt->execute();
         $result = $stmt->get_result();

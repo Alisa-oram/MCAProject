@@ -1,5 +1,5 @@
 <?php
-require_once "./dbFunctions/student_function.php";
+require_once "../dbFunctions/student_function.php";
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
@@ -7,7 +7,19 @@ if (isset($_GET['id'])) {
 
     if ($blog) {
 ?>
-    <div class="container w-75" style="font-family: 'Old Baskerville'; margin-top: 100px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    <link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css">
+</style>
+
+</head>
+<body>
+<div class="container w-75" style="font-family: 'Old Baskerville'; margin-top: 100px;">
         <div class="card mt-4 mb-4">
             <div class="card-body">
                 <!-- Blog Image -->
@@ -23,7 +35,10 @@ if (isset($_GET['id'])) {
                 <p class="card-text fs-5"><?php echo nl2br(htmlspecialchars($blog['detail'])); ?></p>
             </div>
         </div>
-    </div>
+    </div> 
+</body>
+</html>
+   
 <?php
     } else {
         echo "<p class='text-center mt-5'>Blog not found.</p>";

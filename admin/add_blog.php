@@ -63,7 +63,11 @@ if(isset($_POST['add'])){
     require_once "admin_functions.php";
     $res = addBlog($title,$date,$new_name,$content);
     if($res){
-         header("location:add_blog.php");
+        echo "<script>
+        alert('Blog added successfully!');
+        window.location.href = 'add_blog.php';
+    </script>";
+    exit;
         
     } else {
         echo " Error While Adding.";
