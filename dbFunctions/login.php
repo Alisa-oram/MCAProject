@@ -34,8 +34,14 @@
 
             $result = $stmt->get_result();
             if($result->num_rows > 0){
+                $user = $result->fetch_assoc();
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['name'] = $user['name'];
+                $_SESSION['club_name'] = $user['club_name'];
+                $_SESSION['sic'] = $user['sic'];
+                $_SESSION['dept'] = $user['dept'];
                 echo "Login Successfully";
-                header("location:../index.php");
+                header("location:../student/myAccount.php");
             }else{
                 echo "Invalid Credential!!";
             }
