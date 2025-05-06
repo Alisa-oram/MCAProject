@@ -129,5 +129,26 @@ function addMatch($teamA, $teamB, $event, $datetime, $venue, $club, $bannerA, $b
         $conn->close();
     }
 }
+function ShowMatches() {
+    $conn = dbConnection();
+    try {
+        $qry = "SELECT * FROM matches ORDER BY match_datetime ASC";
+        $result = $conn->query($qry);
+
+        if ($result && $result->num_rows > 0) {
+            $matches = [];
+            while ($row = $result->fetch_assoc()) {
+                $matches[] = $row;
+            }
+            return $matches;
+        } else {
+            return false;
+        }
+    } catch (Exception $e) {
+        die("Error: " . $e->getMessage());
+    } finally {
+        $conn->close();
+    }
+}
 
 ?>

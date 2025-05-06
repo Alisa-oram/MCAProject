@@ -176,7 +176,8 @@ $chunks = array_chunk($clubs, 3); // each carousel item will contain 3 cards
         <h3 class="text-dark text-center fw-bold">Blogs</h3>
         <div class="row mt-4">
     <?php 
-    $blogs = showBlog();
+    $Allblogs = showBlog();
+    $blogs = array_slice($Allblogs, 0, 2);    
     if ($blogs): ?>
         <?php foreach ($blogs as $blog): ?>
             <div class="col-sm-6 mt-5">
