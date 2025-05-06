@@ -78,6 +78,25 @@ function getAllClubs() {
         $conn->close();
     }
 }
+function getEventById($id) {
+    $conn = dbConnection();
+    try {
+        $stmt = $conn->prepare("SELECT * FROM event WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
+    } catch (Exception $e) {
+        die("Error fetching blog: " . $e->getMessage());
+    } finally {
+        $conn->close();
+    }
+}
 
 
 ?>

@@ -83,8 +83,25 @@
     }
   </style>
 </head>
-<body>
+<body><?php
+include_once "../dbFunctions/student_function.php"; // Adjust path as needed
 
+// Get blog ID from the URL
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    die("Invalid Event ID.");
+}
+
+$EventId = $_GET['id'];
+$conn = dbConnection(); // your function to connect DB
+$sql = "SELECT * FROM event WHERE id = $EventId";
+$result = mysqli_query($conn, $sql);
+
+if (!$result || mysqli_num_rows($result) === 0) {
+    die("Event post not found.");
+}
+
+$event = mysqli_fetch_assoc($result);
+?>
 <div class="container-fluid p-0">
   <div class="row g-0 full-height flex-column flex-md-row">
 
@@ -92,13 +109,15 @@
     <div class="col-md-6 bg-light">
       <div class="left-panel">
         <div>
-          <div class="title">Spring Event</div>
-          <div class="event-date">March 17th, 2025</div>
+          <div class="title"><?php echo $event['topic']?></div>
+          <div class="event-date"><?php echo $event['date']?></div>
           <div class="event-description">
-            Celebrate the arrival of spring in style! Join us in a beautifully curated garden space bursting with color, music, and joy. Enjoy handcrafted food, artisanal drinks, interactive art displays, and live performances. Whether you're coming with family, friends, or flying solo — this is the perfect way to welcome the warmer days. Don’t miss this one-of-a-kind seasonal experience!
+          <?php echo $event['detail']?>
           </div>
           <div class="mt-4">
-            <button class="btn btn-warning btn-small">Register Now</button>
+          <a href="event_register.php" class="btn btn-warning btn-small">Register Now</a>
+          <a href="index.php" class="btn btn-warning btn-small">Back to home</a>
+
           </div>
         </div>
       </div>
