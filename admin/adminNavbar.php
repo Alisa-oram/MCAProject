@@ -49,9 +49,10 @@ $unreadCount = ($result->num_rows > 0) ? $result->fetch_assoc()['unread_count'] 
                 <hr> <!-- Line after Dashboard -->
                 <li class="nav-item"><a class="nav-link" href="AllCoach.php">Coach</a></li>
                 <hr> <!-- Line after Blog -->
-                <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="allEvent.php">Events</a></li>
                 <hr> <!-- Line after Event -->
-                <li class="nav-item"><a class="nav-link" href="./sports.php">Sports</a></li><hr>
+                <li class="nav-item"><a class="nav-link" href="allBlog.php">Blogs</a></li><hr>
+                <li class="nav-item"><a class="nav-link" href="./allClub.php">Sports</a></li><hr>
                 <li class="nav-item"><a class="nav-link" href="./matches.php">Matches</a></li><hr>
             </ul>
         </div>

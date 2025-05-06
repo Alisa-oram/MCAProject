@@ -74,6 +74,24 @@ function showClubs(){
         $conn->close();
     }
 }
+function allClubs(){
+    $conn = dbConnection();
+    try{
+        $qry = "SELECT * FROM sports_club";
+        $stmt = $conn->prepare($qry);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        if(!$res){
+            echo $conn->error;
+            return false;
+        } 
+        return $res;
+    }catch(Exception $e){
+        die($e->getMessage());
+    }finally{
+        $conn->close();
+    }
+}
 function ShowCoach(){
     $conn = dbConnection();
     try{
@@ -92,24 +110,25 @@ function ShowCoach(){
         $conn->close();
     }
 }
-function addClub($name,$clubId){
+function addClub($name, $clubId, $image, $details) {
     $conn = dbConnection();
-    try{
-        $qry = "INSERT INTO sports_club (clubId,clubName) VALUES(?,?)";
+    try {
+        $qry = "INSERT INTO sports_club (clubId, clubName, image, detail) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($qry);
-        $stmt->bind_param("is",$clubId,$name);
+        $stmt->bind_param("isss", $clubId, $name, $image, $details);
         $res = $stmt->execute();
-        if(!$res){
+        if (!$res) {
             echo $conn->error;
             return false;
         }
         return $res;
-    }catch(Exception $e){
+    } catch (Exception $e) {
         die($e->getMessage());
-    }finally{
+    } finally {
         $conn->close();
     }
 }
+
 function addMatch($teamA, $teamB, $event, $datetime, $venue, $club, $bannerA, $bannerB) {
     $conn = dbConnection();
     try {
@@ -141,6 +160,27 @@ function ShowMatches() {
                 $matches[] = $row;
             }
             return $matches;
+        } else {
+            return false;
+        }
+    } catch (Exception $e) {
+        die("Error: " . $e->getMessage());
+    } finally {
+        $conn->close();
+    }
+}
+function ShowEvents() {
+    $conn = dbConnection();
+    try {
+        $qry = "SELECT * FROM event ORDER BY date ASC"; 
+        $result = $conn->query($qry);
+
+        if ($result && $result->num_rows > 0) {
+            $events = [];
+            while ($row = $result->fetch_assoc()) {
+                $events[] = $row;
+            }
+            return $events;
         } else {
             return false;
         }

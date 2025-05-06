@@ -27,7 +27,7 @@
   <div class="container d-flex justify-content-center align-items-center vh-100">
       <div class="form-container">
           <h2 class="text-center text-primary mb-4">Add Event</h2>
-          <form action="event.php" method="post" enctype="multipart/form-data">
+          <form action="" method="post" enctype="multipart/form-data">
               <div class="mb-3">
                   <label class="form-label">Title:</label>
                   <input type="text" name="title" placeholder="Enter your title" class="form-control" required>
@@ -58,3 +58,31 @@
     <script src="../assets/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<?php
+if(isset($_POST['add'])){
+    $title = $_POST['title'];
+    $date = $_POST['date'];
+    $image = $_FILES['image'];
+    $content = $_POST['article'];
+    $event_for= $_POST['event_for'];
+    $new_name = time()."-".$image['name'];
+    $upload_path="../uploads/".$new_name;
+    if(move_uploaded_file($image['tmp_name'],$upload_path)){
+    require_once "admin_functions.php";
+    $res = addEvent($title,$date,$new_name,$content,$event_for);
+    if($res){
+        echo "<script>
+    alert('Event Added Successfully!');
+    window.location.href='add_event.php';
+</script>";
+exit();
+        
+    } else {
+        echo " Error While Adding.";
+    }
+} else {
+    echo "File Upload Error";
+}
+}
+
+?>

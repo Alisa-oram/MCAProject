@@ -25,6 +25,12 @@ if($result){
       ?>
       </div> 
    </div>
+   <!-- Floating Add Button -->
+   <a href="addClub.php" 
+      class="btn btn-primary rounded-circle shadow-lg" 
+      style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; font-size: 28px;">
+      +
+   </a>
 </main>
 <?php
 }

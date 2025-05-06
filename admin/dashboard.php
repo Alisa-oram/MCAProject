@@ -27,7 +27,7 @@
         <div class="col-md-4">
             <div class="card card-widget position-relative " style="background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);">
                 <div class="card-body text-center">
-                    <a href="add_event.html" class="text-decoration-none">
+                    <a href="add_event.php" class="text-decoration-none">
                         <h2 class="text-white">Events  <i class="bi bi-calendar2-event fs-1 position-absolute" style="bottom: 10px; right: 10px;"></i></h2>
                     </a>
                 </div>

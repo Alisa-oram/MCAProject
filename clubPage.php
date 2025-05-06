@@ -59,13 +59,13 @@ if (!$club) {
   <div class="foot"><?= htmlspecialchars($club['clubName']) ?> Club</div>
 </div>
 <div class="container">
-    <div class="card-row">
+  <div class="row g-4"> <!-- Add Bootstrap gutter class here -->
+    
     <!-- Coach Column -->
     <div class="col-md-6">
       <h5 class="mb-2 text-center text-black fw-bold fs-3">Coach</h5>
       <div class="card shadow-sm border-0 h-100" style="min-height: 200px;">
         <div class="row g-0 h-100">
-          <!-- Image -->
           <div class="col-md-5 h-100">
             <img src="./assets/images/coach.jpg" class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Coach Image">
           </div>
@@ -93,11 +93,10 @@ if (!$club) {
       <h5 class="mb-2 text-center text-black fw-bold fs-3">Secretary</h5>
       <div class="card shadow-sm border-0 h-100" style="min-height: 200px;">
         <div class="row g-0 h-100">
-          <!-- Image -->
           <div class="col-md-5 h-100">
             <img src="./assets/images/secretary.jpg" class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Secretary Image">
           </div>
-          <div class="col-md-7 bg-success text-light px-3 py-2 rounded-end d-flex flex-column justify-content-center h-100">
+          <div class="col-md-7 bg-primary text-light px-3 py-2 rounded-end d-flex flex-column justify-content-center h-100">
             <small style="font-size: 1rem;">Secretary Profile</small>
             <h6 class="mt-1 mb-1">Secretary Jane Smith</h6>
             <p class="mb-1" style="font-size: 1rem;"><strong>Email:</strong> jane@example.com</p>
@@ -109,10 +108,42 @@ if (!$club) {
 
   </div>
 </div>
-
 <div class="text-center py-10">
-    <h2 class="text-3xl font-bold text-indigo-700 mt-5">Our Club Members</h2>
+    <h2 class="text-3xl font-bold text-indigo-700" style=" margin-top: 100px;">Our Club Members</h2>
 </div>
+<div class="container mt-4">
+  <div class="table-responsive w-100 mx-auto"> <!-- Centers the table -->
+    <table class="table table-bordered table-striped text-center">
+      <thead class="table-primary" style="background-color: blue;">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Department</th>
+          <th scope="col">Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>Computer Science</td>
+          <td>3rd Year</td>
+        </tr>
+        <tr>
+          <td>Jane Smith</td>
+          <td>Electrical Engineering</td>
+          <td>2nd Year</td>
+        </tr>
+        <tr>
+          <td>Mike Johnson</td>
+          <td>Mechanical</td>
+          <td>Final Year</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
 
 
 
