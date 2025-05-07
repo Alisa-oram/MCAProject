@@ -37,8 +37,6 @@ $department = $_SESSION['dept'];
     }
   </style>
 </head>
-
-
 <main class="container my-5">
   <div class="row justify-content-center">
     <div class="card shadow-lg border-0 p-5" 
@@ -49,8 +47,6 @@ $department = $_SESSION['dept'];
         <!-- Profile Icon Section -->
         <div class="col-md-4 text-center mb-4 mb-md-0">
           <i class="bi bi-person-circle profile-icon"></i>
-          <!-- Use a real profile image if available -->
-          <!-- <img src="path_to_image.jpg" class="rounded-circle" alt="Profile" width="180px" /> -->
         </div>
 
         <!-- Student Details Section -->

@@ -50,23 +50,41 @@ $result = $stmt->get_result();
       color: gold;
       font-size: 1.2rem;
     }
-    footer {
+    .btn-icon-back {
+            display: inline-block;
+            margin: 15px 25px;
+            font-size: 1.8rem;
+            color: transparent; /* Transparent initially */
+            background-color: transparent;
+            border: none;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-icon-back i {
+            color: transparent; /* Icon is invisible initially */
+            transition: color 0.3s ease;
+        }
+
+        .btn-icon-back:hover i {
+            color: #0d6efd; /* Bootstrap primary blue on hover */
+        }
+    /* footer {
       text-align: center;
       padding: 10px 0;
       background-color: #0d6efd;
       color: white;
-    }
+    } */
 </style>
 </head>
 
 <body>
-    <?php include_once "../fragments/navbar.php"; ?>
-
+    <?php include_once "studentnav.php"; ?>
+    <a href="myAccount.php" class="btn-icon-back" title="Go Back" style="margin-top:80px">
+        <i class="bi bi-arrow-left-circle"></i>
+    </a>
+    <h2 class="text-center text-primary fw-bold mb-4">My Remarks</h2>
     <div class="main-content"> 
-        <div class="attendance-card"> 
-            <h2 class="text-center text-primary fw-bold mb-4">My Remarks</h2>
-
-            <div class="table-responsive">
+        <div class="table-responsive w-75" style="margin-bottom:400px;">
                 <table class="table table-bordered text-center">
                     <thead class="table-primary">
                         <tr>
@@ -96,9 +114,6 @@ $result = $stmt->get_result();
                     </tbody>
                 </table>
             </div>
-        </div> <!-- end .attendance-card -->
     </div> <!-- end .main-content -->
-
-    <?php include_once "../fragments/footer.php"; ?>
 
 </body>

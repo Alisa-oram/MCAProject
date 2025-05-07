@@ -16,6 +16,7 @@ $unreadCount = ($result->num_rows > 0) ? $result->fetch_assoc()['unread_count'] 
     <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/admin/dashboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
 </head>
 <body>
 <div class="navbar w-100 z-1 position-fixed">
@@ -29,15 +30,21 @@ $unreadCount = ($result->num_rows > 0) ? $result->fetch_assoc()['unread_count'] 
         <div class="icon fs-3 text-white">
         <!-- <a href="manageStudent.php"><i class="bi bi-bell bell-icon "></i></a> -->
         <!-- show the notification -->
-        <a href="manageStudent.php" class="position-relative">
-             <i class="bi bi-bell bell-icon text-white"></i>
-            <?php if ($unreadCount > 0): ?>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  <?php echo $unreadCount; ?>
-             </span>
-            <?php endif; ?>
-        </a>
-            <i class="bi bi-person-circle "></i>
+            <a href="manageStudent.php" class="position-relative">
+                <i class="bi bi-bell bell-icon text-white"></i>
+                <?php if ($unreadCount > 0): ?>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <?php echo $unreadCount; ?>
+                </span>
+                <?php endif; ?>
+            </a>
+            <!-- <i class="bi bi-person-circle "></i> -->
+             <span id="userIcon">
+                <i class="bi bi-person-circle text-white"></i>
+            </span>
+            <div id="userDropdown" class="position-absolute end-0 mt-2 d-none" style="z-index: 1000;">
+                <a href="../logout.php" class="btn btn-sm btn-white  bg-white border shadow-sm" style="color:black;">Logout</a>
+            </div>
         </div>
     </div>
 </div>
@@ -58,3 +65,4 @@ $unreadCount = ($result->num_rows > 0) ? $result->fetch_assoc()['unread_count'] 
         </div>
     </nav>
 </div>
+
