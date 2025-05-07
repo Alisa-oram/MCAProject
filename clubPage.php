@@ -63,48 +63,72 @@ if (!$club) {
     
     <!-- Coach Column -->
     <div class="col-md-6">
-      <h5 class="mb-2 text-center text-black fw-bold fs-3">Coach</h5>
-      <div class="card shadow-sm border-0 h-100" style="min-height: 200px;">
-        <div class="row g-0 h-100">
-          <div class="col-md-5 h-100">
-            <img src="./assets/images/coach.jpg" class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Coach Image">
-          </div>
-          <div class="col-md-7 bg-primary text-light px-3 py-2 rounded-end d-flex flex-column justify-content-center h-100">
-            <small style="font-size: 1rem;">Coach Profile</small>
-            <?php
-            // Fetch the coach details using the club name
-            $coachQry = "SELECT name, email FROM coach WHERE club = ?";
-            $coachStmt = $conn->prepare($coachQry);
-            $coachStmt->bind_param("s", $club['clubName']);
-            $coachStmt->execute();
-            $coachResult = $coachStmt->get_result();
-            $coach = $coachResult->fetch_assoc();
-            ?>
-            <h6 class="mt-1 mb-1"><?= htmlspecialchars($coach['name']) ?></h6>
-            <p class="mb-1" style="font-size: 1rem;"><strong>Email:</strong> <?= htmlspecialchars($coach['email']) ?></p>
-            <p style="font-size: 1rem;">15+ years in coaching, focused on growth and leadership.</p>
-          </div>
-        </div>
+  <h5 class="mb-2 text-center text-black fw-bold fs-3">Coach</h5>
+  <div class="card shadow-sm border-0 h-100" style="min-height: 200px;">
+    <div class="row g-0 h-100">
+      <div class="col-md-5 h-100">
+        <img src="./assets/images/coach.jpg" class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Coach Image">
+      </div>
+      <div class="col-md-7 bg-primary text-light px-3 py-2 rounded-end d-flex flex-column justify-content-center h-100">
+        <small style="font-size: 1rem;">Coach Profile</small>
+        <?php
+        // Fetch the coach details using the club name
+        $coachQry = "SELECT name, email FROM coach WHERE role = 'coach' AND club = ? ";
+        $coachStmt = $conn->prepare($coachQry);
+        $coachStmt->bind_param("s", $club['clubName']);
+        $coachStmt->execute();
+        $coachResult = $coachStmt->get_result();
+        $coach = $coachResult->fetch_assoc();
+
+        if ($coach) {
+        ?>
+          <h6 class="mt-1 mb-1"><?= htmlspecialchars($coach['name']) ?></h6>
+          <p class="mb-1" style="font-size: 1rem;"><strong>Email:</strong> <?= htmlspecialchars($coach['email']) ?></p>
+          <p style="font-size: 1rem;">15+ years in coaching, focused on growth and leadership.</p>
+        <?php
+        } else {
+          echo "<p class='mt-2' style='font-size: 1rem;'>No coach appointed yet.</p>";
+        }
+        ?>
       </div>
     </div>
+  </div>
+</div>
 
     <!-- Secretary Column -->
     <div class="col-md-6">
-      <h5 class="mb-2 text-center text-black fw-bold fs-3">Secretary</h5>
-      <div class="card shadow-sm border-0 h-100" style="min-height: 200px;">
-        <div class="row g-0 h-100">
-          <div class="col-md-5 h-100">
-            <img src="./assets/images/secretary.jpg" class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Secretary Image">
-          </div>
-          <div class="col-md-7 bg-primary text-light px-3 py-2 rounded-end d-flex flex-column justify-content-center h-100">
-            <small style="font-size: 1rem;">Secretary Profile</small>
-            <h6 class="mt-1 mb-1">Secretary Jane Smith</h6>
-            <p class="mb-1" style="font-size: 1rem;"><strong>Email:</strong> jane@example.com</p>
-            <p style="font-size: 1rem;">Manages communication and team coordination.</p>
-          </div>
-        </div>
+  <h5 class="mb-2 text-center text-black fw-bold fs-3">Secretary</h5>
+  <div class="card shadow-sm border-0 h-100" style="min-height: 200px;">
+    <div class="row g-0 h-100">
+      <div class="col-md-5 h-100">
+        <img src="./assets/images/secretary.jpg" class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Secretary Image">
+      </div>
+      <div class="col-md-7 bg-primary text-light px-3 py-2 rounded-end d-flex flex-column justify-content-center h-100">
+        <small style="font-size: 1rem;">Secretary Profile</small>
+        <?php
+        // Fetch the secretary details using the club name
+        $secQry = "SELECT name, email FROM coach WHERE role = 'secretary' AND club = ?";
+        $secStmt = $conn->prepare($secQry);
+        $secStmt->bind_param("s", $club['clubName']);
+        $secStmt->execute();
+        $secResult = $secStmt->get_result();
+        $secretary = $secResult->fetch_assoc();
+
+        if ($secretary) {
+        ?>
+          <h6 class="mt-1 mb-1"><?= htmlspecialchars($secretary['name']) ?></h6>
+          <p class="mb-1" style="font-size: 1rem;"><strong>Email:</strong> <?= htmlspecialchars($secretary['email']) ?></p>
+          <p style="font-size: 1rem;">Manages communication and team coordination.</p>
+        <?php
+        } else {
+          echo "<p class='mt-2' style='font-size: 1rem;'>No secretary appointed yet.</p>";
+        }
+        ?>
       </div>
     </div>
+  </div>
+</div>
+
 
   </div>
 </div>
@@ -122,21 +146,23 @@ if (!$club) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>John Doe</td>
-          <td>Computer Science</td>
-          <td>3rd Year</td>
-        </tr>
-        <tr>
-          <td>Jane Smith</td>
-          <td>Electrical Engineering</td>
-          <td>2nd Year</td>
-        </tr>
-        <tr>
-          <td>Mike Johnson</td>
-          <td>Mechanical</td>
-          <td>Final Year</td>
-        </tr>
+        <?php
+        // Prepare the query
+        $memberQry = "SELECT name, dept, year FROM club_member WHERE club_id = ?";
+        $memberStmt = $conn->prepare($memberQry);
+        $memberStmt->bind_param("i", $clubId);
+        $memberStmt->execute();
+        $memberResult = $memberStmt->get_result();
+
+        // Fetch and display results
+        while ($member = $memberResult->fetch_assoc()) {
+          echo "<tr>";
+          echo "<td>" . htmlspecialchars($member['name']) . "</td>";
+          echo "<td>" . htmlspecialchars($member['dept']) . "</td>";
+          echo "<td>" . htmlspecialchars($member['year']) . "</td>";
+          echo "</tr>";
+        }
+        ?>
       </tbody>
     </table>
   </div>

@@ -18,8 +18,8 @@
         <div class="col-md-4">
             <div class="card card-widget position-relative"style="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);">
                 <div class="card-body text-center">
-                    <a href="add_coach.html" class="text-decoration-none">
-                        <h2 class="text-white">Coach  <i class="bi bi-person-fill-add fs-1 position-absolute" style="bottom: 10px; right: 10px;" ></i></h2>
+                    <a href="add_role.php" class="text-decoration-none">
+                        <h2 class="text-white">Roles  <i class="bi bi-person-fill-add fs-1 position-absolute" style="bottom: 10px; right: 10px;" ></i></h2>
                     </a>   
                 </div>
             </div>

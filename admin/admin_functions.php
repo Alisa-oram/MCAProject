@@ -37,7 +37,7 @@ function addBlog($title,$date,$image,$content){
         $conn->close();
     }
 }
-function addCoach($name,$role,$club,$password,$email){
+function addRole($name,$role,$club,$password,$email){
     $conn = dbConnection();
     try{
         $qry = "INSERT INTO coach (name,role,club,password,email) VALUES(?,?,?,?,?)";
@@ -92,7 +92,7 @@ function allClubs(){
         $conn->close();
     }
 }
-function ShowCoach(){
+function ShowRole(){
     $conn = dbConnection();
     try{
         $qry = "SELECT * FROM coach";

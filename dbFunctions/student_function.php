@@ -3,7 +3,7 @@ require_once "dbconnection.php";
 function display(){
     $conn = dbConnection();
     try {
-        $qry = "SELECT * FROM event";
+        $qry = "SELECT * FROM event ORDER BY date DESC";
         $stmt = $conn->prepare($qry);
         $stmt->execute();
         $result = $stmt->get_result();

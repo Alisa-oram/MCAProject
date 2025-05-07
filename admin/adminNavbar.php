@@ -47,7 +47,7 @@ $unreadCount = ($result->num_rows > 0) ? $result->fetch_assoc()['unread_count'] 
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link active" href="./index.php">Dashboard</a></li>
                 <hr> <!-- Line after Dashboard -->
-                <li class="nav-item"><a class="nav-link" href="AllCoach.php">Coach</a></li>
+                <li class="nav-item"><a class="nav-link" href="AllRole.php">Roles</a></li>
                 <hr> <!-- Line after Blog -->
                 <li class="nav-item"><a class="nav-link" href="allEvent.php">Events</a></li>
                 <hr> <!-- Line after Event -->
