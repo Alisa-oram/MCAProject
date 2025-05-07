@@ -41,7 +41,7 @@
                 </div>
                 <div class="mb-3">
                 <label class="form-label">Select Sports Club</label>
-<select id="sport" name="sport" class="form-select">
+<select id="sport" name="club" class="form-select">
     <option value="">-- Choose a Club --</option>
     <?php
     require_once __DIR__ . '/../dbFunctions/dbconnection.php';
