@@ -5,7 +5,7 @@ if (!isset($_SESSION['sic'])) {
     header("Location: login.php");
     exit();
 }
-include_once "../fragments/navbar.php";
+include_once "studentnav.php";
 $name = $_SESSION['name'];
 $sic = $_SESSION['sic'];
 $club = $_SESSION['club_name'];
@@ -77,4 +77,3 @@ $department = $_SESSION['dept'];
   </div>
 </main>
 
-<?php include_once "../fragments/footer.php";?>
