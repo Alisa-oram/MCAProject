@@ -7,15 +7,16 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 }
 
 $blogId = $_GET['id'];
-$conn = dbConnection(); // your function to connect DB
-$sql = "SELECT * FROM blog WHERE id = $blogId";
-$result = mysqli_query($conn, $sql);
+// $conn = dbConnection(); // your function to connect DB
+// $sql = "SELECT * FROM blog WHERE id = $blogId";
+// $result = mysqli_query($conn, $sql);
 
-if (!$result || mysqli_num_rows($result) === 0) {
-    die("Blog post not found.");
-}
+// if (!$result || mysqli_num_rows($result) === 0) {
+//     die("Blog post not found.");
+// }
 
-$blog = mysqli_fetch_assoc($result);
+// Fetch the blog post
+$blog = getBlogById($blogId);
 ?>
 
 <!DOCTYPE html>
