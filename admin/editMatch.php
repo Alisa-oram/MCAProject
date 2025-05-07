@@ -37,7 +37,7 @@ if (!$match) {
   </style>
 </head>
 <body>
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<!-- <div class="container d-flex justify-content-center align-items-center vh-100">
   <div class="form-container">
       <h2 class="text-center text-primary mb-4">Edit Match Details</h2>
       <form action="" method="post" enctype="multipart/form-data">
@@ -78,7 +78,58 @@ if (!$match) {
           <button type="submit" name="update" class="btn btn-primary">Update Match</button>
       </form>
   </div>
+</div> -->
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="form-container w-100">
+    <h2 class="text-center text-primary mb-4">Edit Match Details</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Team A Name:</label>
+            <input type="text" name="team_a" class="form-control" value="<?= $match['team_a'] ?>" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Team A Banner: (Leave blank to keep existing)</label>
+            <input type="file" name="banner_a" class="form-control">
+            <small>Current: <?= $match['banner_a'] ?></small>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Event Name:</label>
+            <input type="text" name="event" class="form-control" value="<?= $match['event_name'] ?>" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Club:</label>
+            <input type="text" name="club" class="form-control" value="<?= $match['club'] ?>" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Team B Name:</label>
+            <input type="text" name="team_b" class="form-control" value="<?= $match['team_b'] ?>" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Team B Banner: (Leave blank to keep existing)</label>
+            <input type="file" name="banner_b" class="form-control">
+            <small>Current: <?= $match['banner_b'] ?></small>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Date & Time:</label>
+            <input type="datetime-local" name="datetime" class="form-control" value="<?= date('Y-m-d\TH:i', strtotime($match['match_datetime'])) ?>" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Venue:</label>
+            <input type="text" name="venue" class="form-control" value="<?= $match['venue'] ?>" required>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" name="update" class="btn btn-primary">Update Match</button>
+      </div>
+    </form>
+  </div>
 </div>
+
 </body>
 </html>
 
