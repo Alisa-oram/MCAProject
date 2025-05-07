@@ -26,13 +26,16 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Prepare SQL statement to prevent SQL injection
-$stmt = $conn->prepare("INSERT INTO participants (name, email, role, department, event_name, event_id) VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssi", $name, $email, $role, $department, $event_name, $event_id);
+$stmt = $conn->prepare("INSERT INTO participants (name, email, role, department, event_name) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $name, $email, $role, $department, $event_name);
 
 // Execute and check the result
 if ($stmt->execute()) {
     // Redirect to a confirmation page or show success message
-    echo "Participation submitted successfully! <a href='event_list.php'>Go back to events</a>";
+    echo "<script>
+        alert('Event Register successfully!');
+        window.location.href = 'event_register.php';
+    </script>";
 } else {
     echo "Error: " . $stmt->error;
 }
