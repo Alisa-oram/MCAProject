@@ -97,7 +97,8 @@ require_once "./dbFunctions/student_function.php";
                         <div class="card event-card red-bar mb-4 p-3">
                             <div class="event-date"><?php echo $event['date']?></div>
                             <div class="event-title"> <?php echo $event['topic']?></div>
-                            <a href="event.php" class="view-link">VIEW DETAILS &raquo;</a>
+                            <a href="event.php?id=<?php echo $event['id']; ?>" class="view-link">VIEW DETAILS &raquo;</a>
+
                         </div>
                 <?php
                     }
@@ -117,9 +118,10 @@ require_once "./dbFunctions/student_function.php";
                             if($event['event_for'] == "faculty"){
                         ?>
                             <div class="card event-card blue-bar mb-4 p-3">
-                                <div class="event-date"><?php echo $event['date']?></div>
-                                <div class="event-title"> <?php echo $event['topic']?></div>
-                                <a href="event.php" class="view-link">VIEW DETAILS &raquo;</a>
+                                <div class="event-date"><?php echo $event['date'];?></div>
+                                <div class="event-title"> <?php echo $event['topic'];?></div>
+                                <a href="event.php?id=<?php echo $event['id']; ?>" class="view-link">VIEW DETAILS &raquo;</a>
+
                             </div>
                         <?php
                             }

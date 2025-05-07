@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spring Event</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./assets/bootstrap/bootstrap.min.css" rel="stylesheet" />
   <style>
     html, body {
       height: 100%;
@@ -84,7 +84,7 @@
   </style>
 </head>
 <body><?php
-include_once "../dbFunctions/student_function.php"; // Adjust path as needed
+include_once "./dbFunctions/student_function.php"; // Adjust path as needed
 
 // Get blog ID from the URL
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -92,15 +92,8 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 }
 
 $EventId = $_GET['id'];
-$conn = dbConnection(); // your function to connect DB
-$sql = "SELECT * FROM event WHERE id = $EventId";
-$result = mysqli_query($conn, $sql);
 
-if (!$result || mysqli_num_rows($result) === 0) {
-    die("Event post not found.");
-}
-
-$event = mysqli_fetch_assoc($result);
+$event = getEventById($EventId);
 ?>
 <div class="container-fluid p-0">
   <div class="row g-0 full-height flex-column flex-md-row">
@@ -115,7 +108,7 @@ $event = mysqli_fetch_assoc($result);
           <?php echo $event['detail']?>
           </div>
           <div class="mt-4">
-          <a href="event_register.php" class="btn btn-warning btn-small">Register Now</a>
+          <a href="event_register.php?id=<?php echo $event['id']; ?>" class="btn btn-warning btn-small">Register Now</a>
           <a href="index.php" class="btn btn-warning btn-small">Back to home</a>
 
           </div>

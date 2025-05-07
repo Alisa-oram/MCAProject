@@ -1,4 +1,5 @@
 <?php
+include_once "./fragments/navbar.php";
 require_once "./dbFunctions/dbconnection.php";
 // Database connection
 $conn = dbConnection(); 

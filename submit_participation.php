@@ -1,5 +1,6 @@
 <?php
-require_once "./dbFunctions/dbconnection.php";
+require_once "./dbFunctions/dbconnection.php"; // Include database connection
+
 // Database connection
 $conn = dbConnection();
 if ($conn->connect_error) {
@@ -12,15 +13,33 @@ $email = $_POST['email'];
 $role = $_POST['role'];
 $department = $_POST['department'];
 $event_name = $_POST['event_name'];
+$event_id = (int)$_POST['event_id']; // Event ID passed as hidden input
 
-// Insert into database
-$sql = "INSERT INTO participants (name, email, role, department, event_name)
-        VALUES ('$name', '$email', '$role', '$department', '$event_name')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Participation submitted successfully!";
-} else {
-    echo "Error: " . $conn->error;
+// Validate form data
+if (empty($name) || empty($email) || empty($role) || empty($department) || empty($event_name)) {
+    die("All fields are required.");
 }
+
+// Validate email format
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die("Invalid email format.");
+}
+
+// Prepare SQL statement to prevent SQL injection
+$stmt = $conn->prepare("INSERT INTO participants (name, email, role, department, event_name) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $name, $email, $role, $department, $event_name);
+
+// Execute and check the result
+if ($stmt->execute()) {
+    // Redirect to a confirmation page or show success message
+    echo "<script>
+        alert('Event Register successfully!');
+        window.location.href = 'event_register.php';
+    </script>";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+$stmt->close();
 $conn->close();
 ?>
