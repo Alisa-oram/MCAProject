@@ -6,7 +6,7 @@
     //     $_SESSION['club_name'] = $_GET['club']; // Store club name in session
         
     //     $sportsclub = $_GET['club'];
-    $result = ShowCoach();
+    $result = ShowRole();
     if($result){
 ?>
 <main class="col-md-10 ms-sm-auto px-md-4 mt-5" style="min-height: 100vh; padding-top: 70px;">
@@ -34,7 +34,7 @@
                                 <td><?php echo $coach['email'] ?></td>    
                             
                                 <td>
-                                    <a href="deleteCoach.php?id=<?php echo $coach['id'] ?>"  class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="deleteRole.php?id=<?php echo $coach['id'] ?>"  class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <?php

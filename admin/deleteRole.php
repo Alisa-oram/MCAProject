@@ -17,13 +17,13 @@ if (isset($_GET['id'])) {
 
     if ($stmt->execute()) {
         echo "<script>
-                alert('Coach Deleted!');
-                window.location.href='AllCoach.php';
+                alert('Role Deleted!');
+                window.location.href='AllRole.php';
               </script>";
     } else {
         echo "<script>
-                alert('Error Deleting Coach!');
-                 window.location.href='AllCoach.php';
+                alert('Error Deleting Role!');
+                 window.location.href='AllRole.php';
                </script>";
     }
 

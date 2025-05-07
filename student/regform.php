@@ -34,16 +34,31 @@
             <span id="sicError" class="error text-danger"></span><br>
 
             <label class="form-label">Select Sports Club</label>
-            <select id="sport" name="sport" class="form-select">
-                <option value="">-- Choose a Club --</option>
-                <option value="Football">Football</option>
-                <option value="Basketball">Basketball</option>
-                <option value="Cricket">Cricket</option>
-                <option value="Volleyball">Volleyball</option>
-                <option value="Kabaddi">Kabaddi</option>
-                <option value="Tennis">Tennis</option>
-                <option value="Badminton">Badminton</option>
-            </select>
+<select id="sport" name="sport" class="form-select">
+    <option value="">-- Choose a Club --</option>
+    <?php
+    require_once __DIR__ . '/../dbFunctions/dbconnection.php';
+    $conn = dbConnection();
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT clubName FROM sports_club";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<option value='" . htmlspecialchars($row["clubName"]) . "'>" . htmlspecialchars($row["clubName"]) . "</option>";
+        }
+    } else {
+        echo "<option disabled>No clubs found</option>";
+    }
+
+    $conn->close();
+    ?>
+</select>
+<span id="sportError" class="error text-danger"></span><br>
             <span id="sportError" class="error text-danger"></span><br>
 
             <label class="form-label">Date of Birth</label>
