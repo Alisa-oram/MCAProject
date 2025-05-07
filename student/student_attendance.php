@@ -7,7 +7,7 @@ if (!isset($_SESSION['sic'])) {
 
 $sic = $_SESSION['sic'];
 $club = $_SESSION['club_name'];
-include_once "../fragments/navbar.php";
+include_once "studentnav.php";
 require_once "../dbFunctions/dbconnection.php";
 $conn = dbConnection();
 
@@ -19,6 +19,7 @@ $attendance_result = $stmt->get_result();
 ?>
 
 <head>
+
     <style>
         * {
             box-sizing: border-box;
@@ -54,17 +55,36 @@ $attendance_result = $stmt->get_result();
             font-size: 1rem;
             padding: 0.5rem 1rem;
         }
+        .btn-icon-back {
+            display: inline-block;
+            margin: 15px 25px;
+            font-size: 1.8rem;
+            color: transparent; /* Transparent initially */
+            background-color: transparent;
+            border: none;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-icon-back i {
+            color: transparent; /* Icon is invisible initially */
+            transition: color 0.3s ease;
+        }
+
+        .btn-icon-back:hover i {
+            color: #0d6efd; /* Bootstrap primary blue on hover */
+        }
+
     </style>
 </head>
 
 <body>
-    <?php include_once "../fragments/navbar.php"; ?>
-
-    <div class="main-content">
-        <div class="attendance-card">
-            <h2 class="text-center text-primary fw-bold mb-4">My Attendance</h2>
-
-            <?php
+<a href="myAccount.php" class="btn-icon-back" title="Go Back" style="margin-top:80px">
+    <i class="bi bi-arrow-left-circle"></i>
+</a>
+<div class="main-content">
+    <div class="attendance-card">
+        <h2 class="text-center text-primary ew-bold mb-4">My Attendance</h2>
+     <?php
             if ($attendance_result->num_rows > 0) {
             ?>
             <div class="table-responsive">
@@ -102,8 +122,6 @@ $attendance_result = $stmt->get_result();
                 echo "<p class='text-muted text-center'>No attendance records found.</p>";
             }
             ?>
-        </div> <!-- end .attendance-card -->
+        </div>
     </div> <!-- end .main-content -->
-
-    <?php include_once "../fragments/footer.php"; ?>
 </body>

@@ -18,10 +18,12 @@
                 <span class="name me-2" style="font-family:'Georgia', Serif;font-size: 24px;color:white">SILICON SPORT</span>
             </a>
         </div>
-        <div class="icon fs-3 text-white">
-        
-            <i class="bi bi-person-circle "></i>
-        </div>
+        <span id="userIcon">
+    <i class="bi bi-person-circle text-white fs-3"></i>
+</span>
+<div id="userDropdown" class="position-absolute end-0 mt-2 d-none" style="z-index: 1000;">
+    <a href="../logout.php" class="btn btn-sm btn-white bg-white border shadow-sm mt-5" style="color:black;">Logout</a>
+</div>
     </div>
 </div>
 <div class="row">

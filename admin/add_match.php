@@ -10,12 +10,13 @@
           background-color: rgb(75, 88, 139);
       }
       .form-container {
-          max-width: 700px;
-          background: rgba(255,255,255, 0.8);
-          padding: 30px;
-          border-radius: 10px;
-          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      }
+    max-height: 800px; /* Decreased from 700px */
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px; /* Reduced padding */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
       .btn-primary {
           width: 100%;
           padding: 10px;
@@ -23,44 +24,55 @@
   </style>
 </head>
 <body>
-<div class="container d-flex justify-content-center align-items-center vh-100">
-  <div class="form-container">
+<div class="container d-flex justify-content-center align-items-center">
+
+  <div class="form-container mt-5">
       <h2 class="text-center text-primary mb-4">Upload Match Details</h2>
       <form action="" method="post" enctype="multipart/form-data">
-          <div class="mb-3">
-              <label class="form-label">Team A Name:</label>
-              <input type="text" name="team_a" class="form-control" placeholder="Team A" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Team A Banner:</label>
-              <input type="file" name="banner_a" class="form-control" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Team B Name:</label>
-              <input type="text" name="team_b" class="form-control" placeholder="Team B" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Team B Banner:</label>
-              <input type="file" name="banner_b" class="form-control" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Event Name:</label>
-              <input type="text" name="event" class="form-control" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Date:</label>
-              <input type="datetime-local" name="datetime" class="form-control" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Venue:</label>
-              <input type="text" name="venue" class="form-control" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Club:</label>
-              <input type="text" name="club" class="form-control" required>
-          </div>
-          <button type="submit" name="upload" class="btn btn-primary">Upload Match</button>
-      </form>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label class="form-label">Team A Name:</label>
+        <input type="text" name="team_a" class="form-control" placeholder="Team A" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Team A Banner:</label>
+        <input type="file" name="banner_a" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Event Name:</label>
+        <input type="text" name="event" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Date:</label>
+        <input type="datetime-local" name="datetime" class="form-control" required>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label class="form-label">Team B Name:</label>
+        <input type="text" name="team_b" class="form-control" placeholder="Team B" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Team B Banner:</label>
+        <input type="file" name="banner_b" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Venue:</label>
+        <input type="text" name="venue" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Club:</label>
+        <input type="text" name="club" class="form-control" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <button type="submit" name="upload" class="btn btn-primary" style="width:200px;">Upload Match</button>
+  </div>
+</form>
   </div>
 </div>
 <script src="../assets/bootstrap/bootstrap.bundle.min.js"></script>
