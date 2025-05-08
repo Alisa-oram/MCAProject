@@ -26,7 +26,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link text-white mx-3" style="font-family: 'Georgia', Serif; font-size: 18px;" href="login.php">Login</a></li>
+                <i class="bi bi-person-circle text-white  fs-3"></i>
                 </ul>
             </div>
         </div>
