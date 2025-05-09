@@ -73,6 +73,24 @@ $attendance_result = $stmt->get_result();
         .btn-icon-back:hover i {
             color: #0d6efd; /* Bootstrap primary blue on hover */
         }
+        .btn-icon-back {
+            display: inline-block;
+            margin: 15px 25px;
+            font-size: 1.8rem;
+            color: transparent; 
+            background-color: transparent;
+            border: none;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-icon-back i {
+            color: transparent; 
+            transition: color 0.3s ease;
+        }
+
+        .btn-icon-back:hover i {
+            color: #0d6efd; 
+        }
 
     </style>
 </head>
