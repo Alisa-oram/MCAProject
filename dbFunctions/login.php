@@ -18,7 +18,7 @@
                 echo "Login Successfully";
                 header("location:../admin/index.php");
             }else{
-                echo "Invalid Credential!!";
+                echo "<script>alert('Invalid Credential!!');</script>";
             }
         }else if($_POST['role'] == 'student'){
             // echo "I am a student";
@@ -43,7 +43,8 @@
                 echo "Login Successfully";
                 header("location:../student/myAccount.php");
             }else{
-                echo "Invalid Credential!!";
+
+                echo "<script>alert('Invalid Credential!!');</script>";
             }
         }else if($_POST['role'] == 'coach'){
             // echo "I am a coach";
@@ -66,7 +67,7 @@
                 echo "Login Successfully";
                 header("location:../coach/index.php");
             }else{
-                echo "Invalid Credential!!";
+                echo "<script>alert('Invalid Credential!!');</script>";
             }
         }
     }
