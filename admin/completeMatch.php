@@ -25,6 +25,7 @@ $match = $result->fetch_assoc();
   <meta charset="UTF-8">
   <title>Complete Match</title>
   <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
   <style>
     body { background-color: #4b588b; }
     .form-container {
@@ -35,9 +36,32 @@ $match = $result->fetch_assoc();
         margin-top: 50px;
         box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
     }
+    .btn-icon-back {
+            display: inline-block;
+            margin: 15px 25px;
+            font-size: 1.8rem;
+            color: transparent; 
+            background-color: transparent;
+            border: none;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-icon-back i {
+            color: transparent; 
+            transition: color 0.3s ease;
+        }
+
+        .btn-icon-back:hover i {
+            color: #0d6efd; 
+        }
   </style>
 </head>
 <body>
+<div style="position: absolute; top: 20px; left: 20px;">
+    <a href="matches.php" class="btn-icon-back" title="Go Back">
+        <i class="bi bi-arrow-left-circle fs-3"></i>
+    </a>
+</div>
 
 <div class="container">
   <div class="form-container mx-auto">

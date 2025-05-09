@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
     <style>
     body{
       margin:0;
@@ -19,10 +20,34 @@
       width:500px;
       color:black;
     }
+    .btn-icon-back {
+            display: inline-block;
+            margin: 15px 25px;
+            font-size: 1.8rem;
+            color: transparent; 
+            background-color: transparent;
+            border: none;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-icon-back i {
+            color: transparent; 
+            transition: color 0.3s ease;
+        }
+
+        .btn-icon-back:hover i {
+            color: #0d6efd; 
+        }
     </style>
 </head>
 <body class="d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card p-4 rounded shadow w-100 mt-2 mb-4" style="max-width: 500px;">
+<div style="position: absolute; top: 20px; left: 20px;">
+    <a href="../index.php" class="btn-icon-back" title="Go Back">
+        <i class="bi bi-arrow-left-circle fs-3"></i>
+    </a>
+</div>
+
+<div class="card p-4 rounded shadow w-100 mt-2 mb-4" style="max-width: 500px;">
         <h2 class="text-center mb-4">Registration Form</h2>
         <form action="../admin/studentdb.php" method="POST" onsubmit="validate(event)">
             <label class="form-label">Name</label>
