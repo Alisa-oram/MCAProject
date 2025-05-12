@@ -19,11 +19,11 @@
             </a>
         </div>
         <span id="userIcon">
-    <i class="bi bi-person-circle text-white fs-3"></i>
-</span>
-<div id="userDropdown" class="position-absolute end-0 mt-2 d-none" style="z-index: 1000;">
-    <a href="../logout.php" class="btn btn-sm btn-white bg-white border shadow-sm mt-5" style="color:black;">Logout</a>
-</div>
+            <i class="bi bi-person-circle text-white fs-3"></i>
+        </span>
+        <div id="userDropdown" class="position-absolute end-0 mt-2 d-none" style="z-index: 1000;">
+            <a href="../logout.php" class="btn btn-sm btn-white bg-white border shadow-sm mt-5" style="color:black;">Logout</a>
+        </div>
     </div>
 </div>
 <div class="row">

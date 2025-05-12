@@ -70,14 +70,14 @@ if (isset($_GET['id'])) {
             display: inline-block;
             margin: 15px 25px;
             font-size: 1.8rem;
-            color: transparent; 
+            /* color: transparent;  */
             background-color: transparent;
             border: none;
             transition: color 0.3s ease;
             text-decoration: none;
         }
         .btn-icon-back i {
-            color: transparent; 
+            color: black; 
             transition: color 0.3s ease;
         }
 

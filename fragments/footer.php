@@ -11,8 +11,8 @@
       <div class="col-lg-3 col-md-6 mt-4">
         <h5 class="text-uppercase">Silicon SportClub</h5>
         <ul class="list-unstyled">
-          <li><a href="mailto:silicon@gmail.com" class="text-white">Email: silicon@gmail.com</a></li>
-          <li><a href="tel:7788996654" class="text-white">Phone: 7788996654</a></li>
+          <li><a href="mailto:silicon@gmail.com" class="text-white" style="text-decoration:none;">Email: silicon@gmail.com</a></li>
+          <li><a href="tel:7788996654" class="text-white"style="text-decoration:none;">Phone: 7788996654</a></li>
         </ul>
       </div>
 
@@ -20,10 +20,10 @@
       <div class="col-lg-3 col-md-6 mt-4">
         <h5 class="text-uppercase">Follow Us</h5>
         <ul class="list-unstyled">
-          <li><a href="#!" class="text-white">Instagram</a></li>
-          <li><a href="#!" class="text-white">Facebook</a></li>
-          <li><a href="#!" class="text-white">Twitter</a></li>
-          <li><a href="#!" class="text-white">LinkedIn</a></li>
+          <li><a href="#!" class="text-white" style="text-decoration:none;">Instagram</a></li>
+          <li><a href="#!" class="text-white" style="text-decoration:none;">Facebook</a></li>
+          <li><a href="#!" class="text-white" style="text-decoration:none;">Twitter</a></li>
+          <li><a href="#!" class="text-white" style="text-decoration:none;">LinkedIn</a></li>
         </ul>
       </div>
 
@@ -31,10 +31,10 @@
       <div class="col-lg-3 col-md-6 mt-4">
         <h5 class="text-uppercase">Quick Links</h5>
         <ul class="list-unstyled">
-          <li><a href="#!" class="text-white">Event Gallery</a></li>
-          <li><a href="#!" class="text-white">Privacy Policy</a></li>
-          <li><a href="#!" class="text-white">Terms of Use</a></li>
-          <li><a href="#!" class="text-white">Contact Us</a></li>
+          <li><a href="#!" class="text-white" style="text-decoration:none;">Event Gallery</a></li>
+          <li><a href="#!" class="text-white" style="text-decoration:none;">Privacy Policy</a></li>
+          <li><a href="#!" class="text-white" style="text-decoration:none;">Terms of Use</a></li>
+          <li><a href="#!" class="text-white" style="text-decoration:none;">Contact Us</a></li>
         </ul>
       </div>
     </div>

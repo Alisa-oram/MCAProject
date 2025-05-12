@@ -68,8 +68,19 @@ $department = $_SESSION['dept'];
           </div>
         </div>
       </div>
-
-    </div>
+     </div>
   </div>
 </main>
+<script src="../assets/bootstrap/bootstrap.bundle.min.js"></script>
+ </body>
+</html>
+<script>
+  const userIcon = document.getElementById('userIcon');
+    const dropdown = document.getElementById('userDropdown');
+
+    userIcon.addEventListener('click', () => {
+        dropdown.classList.toggle('d-none');
+    });
+</script>
+
 

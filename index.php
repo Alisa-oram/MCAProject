@@ -48,22 +48,22 @@
 
     /* Marquee Wrapper */
     .marquee-container {
-     height: 300px;
-      overflow: hidden;
-      position: relative;
-    }
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
 
-    .marquee-content {
-      display: flex;
-      flex-direction: column;
-      animation: scroll-up 40s  infinite;
-    }
+.marquee-content {
+  display: flex;
+  flex-direction: column;
+  animation: scroll-up 20s linear infinite;
+}
 
-    @keyframes scroll-up {
+@keyframes scroll-up {
   0% { transform: translateY(0); }
   100% { transform: translateY(-50%); }
 }
-    
+
     </style>
 </head>
 <?php 

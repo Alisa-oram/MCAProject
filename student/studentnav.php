@@ -16,19 +16,29 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg position-fixed top-0 start-0 w-100" style="background-color: #05427e;">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white d-flex align-items-center" href="./index.php">
-                <img src="../assets/images/image.png" alt="Logo" width="50" height="50" class="me-2 rounded-circle">
-                <span class="name" style="font-family:'Georgia', Serif;font-size: 24px;">SILICON SPORT</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                <i class="bi bi-person-circle text-white  fs-3"></i>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <div class="container-fluid">
+    <a class="navbar-brand text-white d-flex align-items-center" href="../index.php">
+      <img src="../assets/images/image.png" alt="Logo" width="50" height="50" class="me-2 rounded-circle">
+      <span class="name" style="font-family:'Georgia', Serif;font-size: 24px;">SILICON SPORT</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white fs-3" href="#" id="userDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="../logout.php">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
     
