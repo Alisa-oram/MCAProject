@@ -18,7 +18,8 @@
                 echo "Login Successfully";
                 header("location:../admin/index.php");
             }else{
-                echo "<script>alert('Invalid Credential!!');</script>";
+                echo "<script>alert('Invalid Credential!!');window.location.href='../loginForm.php';</script>";
+        
             }
         }else if($_POST['role'] == 'student'){
             // echo "I am a student";
@@ -44,7 +45,8 @@
                 header("location:../student/myAccount.php");
             }else{
 
-                echo "<script>alert('Invalid Credential!!');</script>";
+                echo "<script>alert('Invalid Credential!!');window.location.href='../loginForm.php';</script>";
+                
             }
         }else if($_POST['role'] == 'coach'){
             // echo "I am a coach";
@@ -67,7 +69,10 @@
                 echo "Login Successfully";
                 header("location:../coach/index.php");
             }else{
-                echo "<script>alert('Invalid Credential!!');</script>";
+                
+                echo "<script>alert('Invalid Credential!!');window.location.href='../loginForm.php';</script>";
+                
+               
             }
         }
     }
