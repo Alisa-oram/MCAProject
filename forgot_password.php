@@ -46,6 +46,7 @@ if (isset($_POST['reset'])) {
   <meta charset="UTF-8" />
   <title>Forgot Password</title>
   <link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
   <style>
     body {
       background: linear-gradient(to right, #667eea, #764ba2);
@@ -59,9 +60,32 @@ if (isset($_POST['reset'])) {
       padding: 30px;
       border-radius: 10px;
     }
+    .btn-icon-back {
+            display: inline-block;
+            margin: 15px 25px;
+            font-size: 1.8rem;
+            /* color: transparent;  */
+            background-color: transparent;
+            border: none;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-icon-back i {
+            color:rgb(8, 12, 19);
+            transition: color 0.3s ease;
+        }
+
+        .btn-icon-back:hover i {
+            color: #0d6efd; 
+        }
   </style>
 </head>
 <body>
+  <div style="position: absolute; top: 20px; left: 20px;">
+    <a href="./loginForm.php" class="btn-icon-back" title="Go Back">
+        <i class="bi bi-arrow-left-circle fs-3"></i>
+    </a>
+</div>
   <div class="card shadow-lg bg-light">
     <h3 class="text-center mb-4">Reset Password</h3>
     <?php if ($message): ?>

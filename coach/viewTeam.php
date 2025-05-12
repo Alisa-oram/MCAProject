@@ -42,6 +42,7 @@ $result = $stmt->get_result();
                             <th>SIC</th>
                             <th>Student Name</th>
                             <th>Club</th>
+                            <th>Team Name</th>
                             <th>Created At</th>
                         </tr>
                     </thead>
@@ -56,6 +57,7 @@ $result = $stmt->get_result();
                                 <td><?php echo $row['student_sic']; ?></td>
                                 <td><?php echo $row['student_name']; ?></td>
                                 <td><?php echo $row['club_name']; ?></td>
+                                <td><?php echo $row['team_name']; ?></td>
                                 <td><?php echo date("d M Y", strtotime($row['created_at'])); ?></td>
                             </tr>
                         <?php

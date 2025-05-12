@@ -183,7 +183,7 @@ $chunks = array_chunk($clubs, 3); // each carousel item will contain 3 cards
     if ($blogs): ?>
         <?php foreach ($blogs as $blog): ?>
             <div class="col-sm-6 mt-5">
-                <div class="custom-media d-flex border rounded shadow-sm p-3">
+                <div class="custom-media d-flex border rounded shadow-sm p-3" style="height:300px;width:600px;">
                     <div class="row">
                         <div class="col-md-6">
                             <img src="./uploads/<?php echo $blog['image']; ?>" class="img-fluid h-100 ">

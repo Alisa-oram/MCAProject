@@ -24,9 +24,32 @@
     .login-card{
       background: linear-gradient(to right,rgb(120, 111, 127), #6a82fb);
     }
+    .btn-icon-back {
+            display: inline-block;
+            margin: 15px 25px;
+            font-size: 1.8rem;
+            /* color: transparent;  */
+            background-color: transparent;
+            border: none;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-icon-back i {
+            color:rgb(8, 12, 19);
+            transition: color 0.3s ease;
+        }
+
+        .btn-icon-back:hover i {
+            color: #0d6efd; 
+        }
     </style>
 </head>
 <body>
+  <div style="position: absolute; top: 20px; left: 20px;">
+    <a href="./index.php" class="btn-icon-back" title="Go Back">
+        <i class="bi bi-arrow-left-circle fs-3"></i>
+    </a>
+</div>
   <div class="login-card row w-100">
     <!-- Image Side -->
     <div class="col-md-6 login-image d-none d-md-block">

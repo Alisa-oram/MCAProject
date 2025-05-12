@@ -79,14 +79,7 @@ $('#attendanceForm').submit(function(e){
         }
     });
 });
-//for marking all student present or absent
-// function markAll(status){
-//     const checkboxes = document.querySelectorAll("input[type = 'checkbox'][name^ = 'attendance']");
-//     checkboxes.forEach(cb =>
-//     {cb.checked =(status === 'Present');
 
-//     });
-// }
 </script>
 
 <?php include_once "../coach/coachFooter.php"; ?>
